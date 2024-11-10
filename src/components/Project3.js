@@ -1,20 +1,19 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import eventHubImage from "../assets/images/event.png"; // Replace with actual image path
+import eventHubImage from "../assets/images/event.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Project3 = () => {
   useEffect(() => {
-    // ScrollTrigger for pinning the section when scrolling
     ScrollTrigger.create({
-      trigger: "#project3", // Target the section
-      start: "top top", // Start when the top of the section reaches the top of the viewport
-      end: "bottom top", // End when the bottom of the section reaches the top of the viewport
-      pin: true, // Pin this section in place
-      pinSpacing: false, // Remove extra space when the section is pinned
-      scrub: true, // Smooth scroll effect
+      trigger: "#project3", 
+      start: "top top", 
+      end: "bottom top", 
+      pin: true, 
+      pinSpacing: false, 
+      scrub: true, 
     });
   }, []);
 
@@ -24,17 +23,14 @@ const Project3 = () => {
       className="h-screen bg-slate-500 flex justify-center items-center z-10 relative"
     >
       <div className="w-full h-full relative">
-        {/* Fixed background image with parallax effect */}
         <img
           src={eventHubImage}
           className="background-img w-full h-full object-cover absolute top-0 left-0 z-0"
           alt="Project 3"
         />
 
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/50"></div>
 
-        {/* Content */}
         <div className="absolute top-0 left-0 w-1/2 h-full bg-black/50">
           <div className="absolute top-0 left-0 w-full h-full bg-black/50 flex justify-center items-center">
             <div className="z-40 font-dm-sans p-4">
@@ -48,7 +44,7 @@ const Project3 = () => {
 
               <a
                 className="font-dm-sans font-extralight text-[1.4rem] w-52 flex justify-center text-white items-center h-12 bg-black border-2 border-gray-300 mt-5 ml-2 rounded-lg hover:bg-gray-300 hover:text-black transition-all duration-1s ease-in "
-                href="https://github.com/Dev22Patel/EventHub" // Replace with your project URL
+                href="https://github.com/Dev22Patel/EventHub" 
               >
                 View Project
               </a>

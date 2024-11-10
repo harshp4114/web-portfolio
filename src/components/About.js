@@ -5,12 +5,12 @@ const About = () => {
     <div id="about" className="h-full justify-center content-start flex flex-wrap w-full absolute z-50 bg-white">
         <div className="basis-full flex justify-center items-start">
 
-        <h1 className="text-5xl mb-4 font-dm-sans mt-9">Tech Stack</h1>
+        <h1 className="text-5xl mb-4 font-dm-sans mt-10">Tech Stack</h1>
         </div>
         <TechStack />
-        <div className="w-11/12 rounded-full border-black border-2 mt-10"></div>
-      <div className="flex justify-center basis-full flex-wrap">
-        <div className="flex items-center justify-center mr-3 space-x-2 mt-2 ml-4 w-full">
+        <div className="w-11/12 rounded-full border-black border-2 mt-12"></div>
+      <div className="flex justify-center basis-full flex-wrap mt-5">
+        <div className="flex items-center leading-10 justify-center mr-3 space-x-2 mt-2 ml-4 w-full">
           <a href="http://localhost:1234/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -60,12 +60,12 @@ const About = () => {
           <a
             id="name"
             href="http://localhost:1234/"
-            className="text-5xl ml-3 pt-1 pb-3 font-extralight text-[#323232] mb-4 cursor-pointer font-dm-sans border-t-[3px] border-transparent hover:border-gray-500 transition-all duration-300 ease-in-out"
+            className="text-5xl ml-3 pt-1 pb-3 font-extralight text-[#323232] mb-4 cursor-pointer font-dm-sans border-t-[3px] border-transparent"
           >
             Harsh Patadia
           </a>
         </div>
-        <div className="flex items-center w-full justify-center">
+        <div className="flex items-center w-full justify-center mt-1">
           <a
             href="https://github.com/harshp4114"
             className="text-black text-xl ml-12 mr-12 hover:text-[2rem] transition-all duration-1s font-dm-sans hover:text-gray-700 "

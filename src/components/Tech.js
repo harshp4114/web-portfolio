@@ -1,7 +1,7 @@
 const Tech = (props) => {
   const { path, url } = props;
   return (
-    <div className=" rounded-lg h-1/5 w-1/5 bg-blend-lighten bg-black">
+    <div id="tech" className=" rounded-lg h-1/5 w-1/5 opacity-100 bg-blend-lighten bg-black">
       <a href={url} className="h-full w-full">
         <img
           src={path}
