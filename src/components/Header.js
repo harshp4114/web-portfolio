@@ -5,9 +5,9 @@ const Header = () => {
   const location = useLocation();
 
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/random-project", label: "Random Project" },
+    { href: "http://localhost:1234/", label: "Home" },
+    { href: "#project1", label: "Projects" },
+    { href: "#about", label: "About" },
   ];
 
   return (
@@ -69,8 +69,8 @@ const Header = () => {
         <ul className="flex space-x-8 pb-3">
           {links.map((link) => (
             <li key={link.href}>
-              <Link
-                to={link.href}
+              <a
+                href={link.href}
                 aria-current={
                   location.pathname === link.href ? "page" : undefined
                 }
@@ -82,7 +82,7 @@ const Header = () => {
           }`}
               >
                 {link.label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>

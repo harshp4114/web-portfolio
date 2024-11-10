@@ -19,6 +19,7 @@
   "homepage": "https://github.com/harshp4114/web-portfolio#readme",
   "description": "",
   "devDependencies": {
+    "@parcel/transformer-raw": "^2.12.0",
     "buffer": "^6.0.3",
     "parcel": "^2.12.0",
     "postcss": "^8.4.47",

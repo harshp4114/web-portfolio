@@ -4,6 +4,7 @@ import Project1 from "./Project1";
 import Header from "./Header";
 import Project2 from "./Project2";
 import Project3 from "./Project3";
+import About from "./About";
 const Body = () => {
   return (
     <div className="h-screen">
@@ -15,6 +16,7 @@ const Body = () => {
       <Project1 />
       <Project2 />
       <Project3 />
+      <About />
     </div>
   );
 };
