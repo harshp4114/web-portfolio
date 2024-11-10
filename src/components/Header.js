@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import gsap, { Linear } from "gsap";
 const Header = () => {
   const location = useLocation();
 
@@ -11,13 +11,13 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white pt-4 px-6 flex justify-between items-center m-16 mb-0 mt-12">
-      <div className="flex items-center space-x-2">
+    <div className="bg-white pt-4 px-6 flex justify-between items-center m-16 mb-0 mt-0">
+      <div className="flex items-center space-x-2 mt-12">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 100"
-          className="w-14 h-14 mr-4 cursor-pointer"
-          >
+          className="w-14 h-14 mr-3 cursor-pointer"
+        >
           <g transform="translate(20, 70)">
             <text
               x="-9"
@@ -54,13 +54,18 @@ const Header = () => {
             </text>
           </g>
         </svg>
-
-        <span className="text-5xl pt-1 pb-3 font-extralight text-[#323232] mb-2 cursor-pointer font-dm-sans border-t-[3px] border-transparent hover:border-gray-500 transition-all duration-300 ease-in-out">
+        <pre className="text-5xl pt-1 pb-3 font-extralight text-[#323232] mb-2 font-dm-sans">
+          |{"  "}
+        </pre>
+        <span
+          id="name"
+          className="text-5xl ml-3 pt-1 pb-3 font-extralight text-[#323232] mb-2 cursor-pointer font-dm-sans border-t-[3px] border-transparent hover:border-gray-500 transition-all duration-300 ease-in-out"
+        >
           Harsh Patadia
         </span>
       </div>
 
-      <nav>
+      <nav className="mt-12">
         <ul className="flex space-x-8 pb-3">
           {links.map((link) => (
             <li key={link.href}>
@@ -82,7 +87,7 @@ const Header = () => {
           ))}
         </ul>
       </nav>
-    </header>
+    </div>
   );
 };
 
