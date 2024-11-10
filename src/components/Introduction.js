@@ -45,13 +45,13 @@ const Introduction = () => {
         <div>
           <h1
             id="hello"
-            className="text-[11rem] p-0 font-serif pl-20 text-gray-900 opacity-0 fixed top-[8.3rem]"
+            className="text-[11rem] p-0 font-serif pl-20 text-gray-900 opacity-0 fixed top-[8.3rem] z-0"
           >
             Hello 
           </h1>
           <h1
             id="world"
-            className="text-[11rem] p-0 leading-9 font-serif pl-20 text-gray-900 opacity-0 basis-full fixed top-[24.9rem]"
+            className="text-[11rem] p-0 leading-9 font-serif pl-20 text-gray-900 opacity-0 basis-full fixed top-[24.9rem] z-0"
           >
             World.
           </h1>
@@ -61,7 +61,7 @@ const Introduction = () => {
       <div className="w-[40rem]">
         <p
           id="para-intro"
-          className="pt-[4.9rem] pl-24 text-[1.2rem] text-gray-700 leading-relaxed opacity-0 max-w-2xl fixed top-[26.7rem]"
+          className="pt-[4.9rem] pl-24 text-[1.2rem] text-gray-700 leading-relaxed opacity-0 max-w-2xl fixed top-[26.7rem] z-0"
         >
           I’m Harsh Patadia, a third-year Computer Engineering student with a
           passion for coding and web development. I enjoy exploring cutting-edge
