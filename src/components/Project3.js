@@ -42,12 +42,15 @@ const Project3 = () => {
               Where Events Meet Opportunity: Hosts Create, Sponsors Compete, and Auctions Drive Success!
               </h1>
 
+              <div className="w-full flex">
               <a
-                className="font-dm-sans font-extralight text-[1.4rem] w-52 flex justify-center text-white items-center h-12 bg-black border-2 border-gray-300 mt-5 ml-2 rounded-lg hover:bg-gray-300 hover:text-black transition-all duration-1s ease-in "
+                className="font-dm-sans font-extralight text-[1.4rem] w-44 flex justify-center text-white items-center h-12 bg-black border-2 border-gray-300 mt-5 ml-2 rounded-lg hover:bg-gray-300 hover:text-black transition-all duration-1s ease-in "
                 href="https://github.com/Dev22Patel/EventHub" 
-              >
+                >
                 View Project
               </a>
+              <a href="https://event-hub-topaz-seven.vercel.app/" target="_blank" className="font-dm-sans font-extralight ml-8 text-[1.4rem] w-44 flex justify-center text-white items-center h-12 bg-black border-2 border-gray-300 mt-5  rounded-lg hover:bg-gray-300 hover:text-black transition-all duration-1s ease-in ">Live Demo</a>
+                </div>
             </div>
           </div>
         </div>
