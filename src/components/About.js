@@ -16,7 +16,7 @@ const About = () => {
       <div className="w-11/12 rounded-full border-black border-2 mt-12"></div>
       <div className="flex justify-center basis-full flex-wrap mt-5">
         <div className="flex items-center leading-10 justify-center mr-3 space-x-2 mt-2 ml-4 w-full">
-          <a href="http://localhost:1234/">
+          <a href="https://harshkp-portfolio.netlify.app/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 100 100"
@@ -64,7 +64,7 @@ const About = () => {
           </pre>
           <a
             id="name"
-            href="http://localhost:1234/"
+            href="https://harshkp-portfolio.netlify.app/"
             className="text-5xl ml-3 pt-1 pb-3 font-extralight text-[#323232] mb-4 cursor-pointer font-dm-sans border-t-[3px] border-transparent"
           >
             Harsh Patadia

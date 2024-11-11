@@ -5,7 +5,7 @@ const Header = () => {
   const location = useLocation();
 
   const links = [
-    { href: "http://localhost:1234/", label: "Home" },
+    { href: "https://harshkp-portfolio.netlify.app/", label: "Home" },
     { href: "#project1", label: "Projects" },
     { href: "#about", label: "About" },
   ];
@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <div className="bg-white pt-4 px-6 flex justify-between items-center m-16 mb-0 mt-0">
       <div className="flex items-center space-x-2 mt-12">
-        <a href="http://localhost:1234/">
+        <a href="https://harshkp-portfolio.netlify.app/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 100 100"
@@ -59,7 +59,7 @@ const Header = () => {
         <pre className="text-5xl pt-1 pb-3 font-extralight text-[#323232] mb-2 font-dm-sans">
           |{"  "}
         </pre>
-        <a href="http://localhost:1234/" className="ml-3  pb-3 font-extralight text-[#323232] mb-2 font-dm-sans">
+        <a href="https://harshkp-portfolio.netlify.app/" className="ml-3  pb-3 font-extralight text-[#323232] mb-2 font-dm-sans">
           <span
             id="name"
             className="text-5xl font-extralight border-t-[3px] border-transparent hover:border-gray-500 transition-all duration-300 ease-in-out"
