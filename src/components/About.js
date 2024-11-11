@@ -71,19 +71,19 @@ const About = () => {
         </div>
         <div className="flex items-center w-full justify-center mt-1">
           <a
-            href="https://github.com/harshp4114"
+            href="https://github.com/harshp4114"  target="_blank"
             className="text-black text-xl ml-12 mr-12 hover:text-[2rem] transition-all duration-1s font-dm-sans hover:text-gray-700 "
           >
             GitHub
           </a>
           <a
-            href="https://www.linkedin.com/in/harsh-patadia-a677a4289/"
+            href="https://www.linkedin.com/in/harsh-patadia-a677a4289/"  target="_blank"
             className="text-black text-xl ml-12 mr-12 hover:text-[2rem] transition-all duration-1s font-dm-sans hover:text-gray-700 "
           >
             Linkedin
           </a>
           <a
-            href="mailto:harshpatadia4114@gmail.com"
+            href="mailto:harshpatadia4114@gmail.com"  target="_blank"
             className="text-black text-xl ml-12 mr-12 hover:text-[2rem] transition-all duration-1s font-dm-sans hover:text-gray-700 "
           >
             Gmail

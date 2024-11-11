@@ -44,7 +44,7 @@ const Project2 = () => {
 
               <a
                 className="font-dm-sans font-extralight text-[1.4rem] w-52 flex justify-center text-white items-center h-12 bg-black border-2 border-gray-300 mt-5 ml-2 rounded-lg hover:bg-gray-300 hover:text-black transition-all duration-1s ease-in "
-                href="https://github.com/harshp4114/findWorker"
+                href="https://github.com/harshp4114/findWorker" target="_blank"
               >
                 View Project
               </a>
