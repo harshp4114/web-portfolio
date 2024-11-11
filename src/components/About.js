@@ -3,7 +3,6 @@ import { Cloudinary } from "@cloudinary/url-gen";
 import resumeFile from "../assets/resume.pdf";
 
 const About = () => {
-
   return (
     <div
       id="about"
@@ -91,12 +90,13 @@ const About = () => {
           </a>
           <a
             href={resumeFile}
-            download="HarshKPatadia_resume.pdf" 
+            download="HarshKPatadia_resume.pdf"
             className="text-black text-xl ml-12 mr-12 hover:text-[2rem] transition-all duration-1s font-dm-sans hover:text-gray-700 "
           >
             Resume
           </a>
         </div>
+        <div class="flex space-x-4"></div>
       </div>
     </div>
   );
