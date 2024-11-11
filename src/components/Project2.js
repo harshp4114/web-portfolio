@@ -24,7 +24,7 @@ const Project2 = () => {
     >
       <div className="w-full h-full relative">
         <img
-          src={findWorkerImage}
+          src="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314710/findWorker_dwbzru.png"
           className="background-img w-full h-full object-cover absolute top-0 left-0 z-0"
           alt="Find Worker"
         />

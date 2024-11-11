@@ -1,14 +1,19 @@
 import TechStack from "./TechStack";
-import resumeFile from "../assets/resume.pdf"
-const About = () => {
-  return (
-    <div id="about" className="h-full justify-center content-start flex flex-wrap w-full absolute z-50 bg-white">
-        <div className="basis-full flex justify-center items-start">
+import { Cloudinary } from "@cloudinary/url-gen";
+import resumeFile from "../assets/resume.pdf";
 
+const About = () => {
+
+  return (
+    <div
+      id="about"
+      className="h-full justify-center content-start flex flex-wrap w-full absolute z-50 bg-white"
+    >
+      <div className="basis-full flex justify-center items-start">
         <h1 className="text-5xl mb-4 font-dm-sans mt-10">Tech Stack</h1>
-        </div>
-        <TechStack />
-        <div className="w-11/12 rounded-full border-black border-2 mt-12"></div>
+      </div>
+      <TechStack />
+      <div className="w-11/12 rounded-full border-black border-2 mt-12"></div>
       <div className="flex justify-center basis-full flex-wrap mt-5">
         <div className="flex items-center leading-10 justify-center mr-3 space-x-2 mt-2 ml-4 w-full">
           <a href="http://localhost:1234/">
@@ -85,7 +90,8 @@ const About = () => {
             Gmail
           </a>
           <a
-            href={resumeFile} download="HarshKPatadia_resume.pdf"
+            href={resumeFile}
+            download="HarshKPatadia_resume.pdf" 
             className="text-black text-xl ml-12 mr-12 hover:text-[2rem] transition-all duration-1s font-dm-sans hover:text-gray-700 "
           >
             Resume

@@ -24,7 +24,7 @@ const Project3 = () => {
     >
       <div className="w-full h-full relative">
         <img
-          src={eventHubImage}
+          src="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314707/event_yaxnpw.png"
           className="background-img w-full h-full object-cover absolute top-0 left-0 z-0"
           alt="Project 3"
         />
