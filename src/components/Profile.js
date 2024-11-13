@@ -2,17 +2,17 @@ import gsap from "gsap";
 import { useEffect } from "react";
 
 const Profile = () => {
-  // useEffect(() => {
-  //   gsap.from(
-  //     "#profile",
-  //     {
-  //       x: 70,
-  //       y: 0,
-  //       opacity: 0,
-  //       duration: 1.5,
-  //     }
-  //   );
-  // }, []);
+  useEffect(() => {
+    gsap.from(
+      "#profile",
+      {
+        x: 70,
+        y: 0,
+        opacity: 0,
+        duration: 1.5,
+      }
+    );
+  }, []);
 
   return (
     <div className="w-full flex h-full xl:h-3/4 justify-center xl:justify-end items-center">
