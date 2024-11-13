@@ -20,8 +20,8 @@ const TechStack = () => {
   }, []);
   
   return (
-    <div id="stack" className="w-[70vw] h-[70vw] flex flex-wrap-reverse opacity-1 content-start justify-end border-8 border-black border-t-0 rounded-b-xl xl:w-[24rem] xl:h-[24rem] xl:flex xl:flex-wrap-reverse opacity-1 xl:content-start xl:justify-end xl:border-8 xl:border-black xl:border-t-0 xl:rounded-b-xl">
-    <div className="w-[70vw] h-[70vw] flex flex-wrap-reverse content-start justify-end border-2 border-white border-t-0 rounded-b-xl xl:w-[24rem] xl:h-[24rem] xl:flex xl:flex-wrap-reverse xl:content-start xl:justify-end xl:border-2 xl:border-white xl:border-t-0 xl:rounded-b-xl">
+    <div id="stack" className="w-[75vw] h-[75vw] flex flex-wrap-reverse opacity-1 content-start justify-end border-8 border-black border-t-0 rounded-b-xl xl:w-[24rem] xl:h-[24rem] xl:flex xl:flex-wrap-reverse opacity-1 xl:content-start xl:justify-end xl:border-8 xl:border-black xl:border-t-0 xl:rounded-b-xl">
+    <div className="w-[75vw] h-[75vw] flex flex-wrap-reverse content-start justify-end border-2 border-white border-t-0 rounded-b-xl xl:w-[24rem] xl:h-[24rem] xl:flex xl:flex-wrap-reverse xl:content-start xl:justify-end xl:border-2 xl:border-white xl:border-t-0 xl:rounded-b-xl">
       <Tech path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314701/spring_kckgkx.jpg" url="https://spring.io/"/>
       <Tech path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314701/angular_rhrpcq.png" url="https://angular.dev/"/>
       <Tech path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314701/c_dycs6h.jpg" url="https://www.learn-c.org/"/>

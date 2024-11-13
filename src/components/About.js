@@ -5,17 +5,17 @@ const About = () => {
   return (
     <div
       id="about"
-      className="h-screen justify-center items-center content-start flex flex-wrap w-full absolute z-50 bg-white xl:h-full xl:justify-center xl:content-start xl:flex xl:flex-wrap xl:w-full xl:absolute xl:z-50 xl:bg-white"
+      className="h-screen justify-center items-start content-center flex flex-wrap w-full absolute z-50 bg-white xl:h-full xl:justify-center xl:content-start xl:flex xl:flex-wrap xl:w-full xl:absolute xl:z-50 xl:bg-white"
     >
       <div className="basis-full flex justify-center items-start">
-        <h1 className="text-[9vw] font-dm-sans mt- mb-2 xl:text-5xl xl:mb-4 xl:font-dm-sans xl:mt-10">
+        <h1 className="text-[9vw] font-dm-sans mt-[2vh] mb-[2vh] xl:text-5xl xl:mb-4 xl:font-dm-sans xl:mt-10">
           Tech Stack
         </h1>
       </div>
       <TechStack />
-      <div className="w-11/12 rounded-full border-black border-2 mt-10 xl:w-11/12 xl:rounded-full xl:border-black xl:border-2 xl:mt-12"></div>
-      <div className="flex justify-center basis-full flex-wrap mt-5 xl:flex xl:justify-center xl:basis-full xl:flex-wrap xl:mt-5">
-        <div className="flex items-center leading-10 justify-center mr-3 space-x-2 mt-2 ml-4 w-full xl:flex xl:items-center xl:leading-10 xl:justify-center xl:mr-3 xl:space-x-2 xl:mt-2 xl:ml-4 xl:w-full">
+      <div className="w-11/12 rounded-full border-black border-2 mt-[5.5vh] xl:w-11/12 xl:rounded-full xl:border-black xl:border-2 xl:mt-12"></div>
+      <div className="flex justify-center basis-full flex-wrap mt-[4.5vh] xl:flex xl:justify-center xl:basis-full xl:flex-wrap xl:mt-5">
+        <div className="flex items-center leading-10 justify-center mr-3 space-x-2 ml-4 w-full xl:flex xl:items-center xl:leading-10 xl:justify-center xl:mr-3 xl:space-x-2 xl:mt-2 xl:ml-4 xl:w-full">
           <a href="https://harshkp-portfolio.netlify.app/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ const About = () => {
             Harsh Patadia
           </a>
         </div>
-        <div className="flex flex-wrap items-center w-full justify-center mt-1 xl:flex xl:flex-wrap xl:items-center xl:w-full xl:justify-center xl:mt-2">
+        <div className="flex flex-wrap items-center w-full justify-center mt-[1vh] xl:flex xl:flex-wrap xl:items-center xl:w-full xl:justify-center xl:mt-2">
           <a
             href="https://github.com/harshp4114"
             target="_blank"
@@ -88,14 +88,14 @@ const About = () => {
           <a
             href="mailto:harshpatadia4114@gmail.com"
             target="_blank"
-            className="text-black text-[5vw] ml-12 mr-12 mt-4 font-dm-sans hover:text-gray-700 xl:text-black xl:text-xl xl:ml-12 xl:mt-0 xl:mr-12 xl:hover:text-[2rem] xl:transition-all duration-1s xl:font-dm-sans xl:hover:text-gray-700"
+            className="text-black text-[5vw] ml-12 mr-12 mt-[4vh] font-dm-sans hover:text-gray-700 xl:text-black xl:text-xl xl:ml-12 xl:mt-0 xl:mr-12 xl:hover:text-[2rem] xl:transition-all duration-1s xl:font-dm-sans xl:hover:text-gray-700"
           >
             Gmail
           </a>
           <a
             href={resumeFile}
             download="HarshKPatadia_resume.pdf"
-            className="text-black text-[5vw] ml-12 mr-12 mt-4 font-dm-sans hover:text-gray-700 xl:text-black xl:text-xl xl:ml-12 xl:mr-12 xl:mt-0 xl:hover:text-[2rem] xl:transition-all duration-1s xl:font-dm-sans xl:hover:text-gray-700"
+            className="text-black text-[5vw] ml-12 mr-12 mt-[4vh] font-dm-sans hover:text-gray-700 xl:text-black xl:text-xl xl:ml-12 xl:mr-12 xl:mt-0 xl:hover:text-[2rem] xl:transition-all duration-1s xl:font-dm-sans xl:hover:text-gray-700"
           >
             Resume
           </a>
