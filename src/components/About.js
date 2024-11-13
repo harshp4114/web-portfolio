@@ -70,11 +70,11 @@ const About = () => {
             Harsh Patadia
           </a>
         </div>
-        <div className="flex flex-wrap items-center w-full justify-center mt-1 xl:flex xl:flex-wrap xl:items-center xl:w-full xl:justify-center xl:mt-1">
+        <div className="flex flex-wrap items-center w-full justify-center mt-1 xl:flex xl:flex-wrap xl:items-center xl:w-full xl:justify-center xl:mt-2">
           <a
             href="https://github.com/harshp4114"
             target="_blank"
-            className="text-black text-[5vw] ml-12 mr-12 font-dm-sans hover:text-gray-700 xl:text-black xl:text-xl xl:ml-12 xl:mr-12 xl:hover:text-[2rem] xl:transition-all duration-1s xl:font-dm-sans xl:hover:text-gray-700"
+            className="text-black text-[5vw] ml-12 mr-12 font-dm-sans hover:text-gray-700 xl:text-black xl:text-xl xl:mt-0 xl:ml-12 xl:mr-12 xl:hover:text-[2rem] xl:transition-all duration-1s xl:font-dm-sans xl:hover:text-gray-700"
           >
             GitHub
           </a>
@@ -95,7 +95,7 @@ const About = () => {
           <a
             href={resumeFile}
             download="HarshKPatadia_resume.pdf"
-            className="text-black text-[5vw] ml-12 mr-12 mt-4 font-dm-sans hover:text-gray-700 xl:text-black xl:text-xl xl:ml-12 xl:mr-12 xl:hover:text-[2rem] xl:transition-all duration-1s xl:font-dm-sans xl:hover:text-gray-700"
+            className="text-black text-[5vw] ml-12 mr-12 mt-4 font-dm-sans hover:text-gray-700 xl:text-black xl:text-xl xl:ml-12 xl:mr-12 xl:mt-0 xl:hover:text-[2rem] xl:transition-all duration-1s xl:font-dm-sans xl:hover:text-gray-700"
           >
             Resume
           </a>
