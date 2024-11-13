@@ -17,7 +17,7 @@ const Header = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 100 100"
-            className="w-[7vw] h-[7vw] mr-[1.4vw] mt-[1vw] xl:w-14 xl:h-14 xl:mr-3 cursor-pointer"
+            className="w-[7vw] h-[7vw] mr-[1.4vw] mt-[1vw] xl:w-14 xl:mb-3 xl:h-14 xl:mr-3 cursor-pointer"
           >
             <g transform="translate(20, 70)">
               <text

@@ -34,7 +34,7 @@ const Project3 = () => {
         <div className="absolute top-0  left-0 w-1/2 h-full bg-black/50">
           <div className="absolute top-0 left-0 w-full h-full bg-black/50 flex justify-center items-center">
             <div className="z-40 w-full font-dm-sans flex flex-wrap content-center justify-start items-center xl:block xl:w-auto xl:p-4 p-4">
-              <h1 className="font-NumFont text-gray-400 text-[8vw]">03</h1>
+              <h1 className="font-NumFont text-gray-400 text-[8vw] xl:text-[4.5rem]">03</h1>
               <h1 className="font-NumFont text-white font-thin leading-3 basis-full mt-3 mb-6 text-[6.5vw] xl:leading-3 xl:mt-7 xl:text-[5rem]">
                 Event Hub
               </h1>
