@@ -9,16 +9,3 @@
     font-style: normal;
   }
   
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-  }
-
-  .animated-link {
-    display: inline-block;
-    animation: pulse 2s infinite ease-in-out, rotate 5s infinite linear;
-  }
