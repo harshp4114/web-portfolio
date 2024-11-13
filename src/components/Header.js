@@ -11,13 +11,13 @@ const Header = () => {
   ];
 
   return (
-    <div className="bg-white pt-4 px-6 flex justify-between items-center m-16 mb-0 mt-0">
-      <div className="flex items-center space-x-2 mt-12">
+    <div className="bg-white pt-[1.8vw] px-0 m-3 mb-0 mt-0 xl:pt-4 xl:px-6 flex justify-between items-center xl:m-16 xl:mb-0 xl:mt-0">
+      <div className="flex mt-4 items-center xl:space-x-2 xl:mt-12">
         <a href="https://harshkp-portfolio.netlify.app/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 100 100"
-            className="w-14 h-14 mr-3 cursor-pointer"
+            className="w-[7vw] h-[7vw] mr-[1.4vw] mt-[1vw] xl:w-14 xl:h-14 xl:mr-3 cursor-pointer"
           >
             <g transform="translate(20, 70)">
               <text
@@ -56,21 +56,21 @@ const Header = () => {
             </g>
           </svg>
         </a>
-        <pre className="text-5xl pt-1 pb-3 font-extralight text-[#323232] mb-2 font-dm-sans">
-          |{"  "}
+        <pre className="text-[8vw] pb-[1vw] font-extralight xl:text-5xl xl:pt-1 xl:pb-3 xl:font-extralight text-[#323232] xl:mb-2 font-dm-sans">
+          |
         </pre>
-        <a href="https://harshkp-portfolio.netlify.app/" className="ml-3  pb-3 font-extralight text-[#323232] mb-2 font-dm-sans">
+        <a href="https://harshkp-portfolio.netlify.app/" className="ml-0 text-xl pb-1 xl:ml-3 xl:pb-3 font-extralight text-[#323232] xl:mb-2 font-dm-sans">
           <span
             id="name"
-            className="text-5xl font-extralight border-t-[3px] border-transparent hover:border-gray-500 transition-all duration-300 ease-in-out"
+            className="text-[4.5vw] font-light ml-2 border-t-[0.5vw] border-transparent hover:border-gray-500 xl:text-5xl xl:font-extralight xl:border-t-[3px] xl:border-transparent xl:hover:border-gray-500 transition-all duration-300 ease-in-out"
           >
             Harsh Patadia
           </span>
         </a>
       </div>
 
-      <nav className="mt-12">
-        <ul className="flex space-x-8 pb-3">
+      <nav className="mt-2 xl:mt-12">
+        <ul className="flex space-x-[3vw] xl:space-x-8 xl:pb-3">
           {links.map((link) => (
             <li key={link.href}>
               <a
@@ -78,11 +78,11 @@ const Header = () => {
                 aria-current={
                   location.pathname === link.href ? "page" : undefined
                 }
-                className={`text-gray-500 pb-1 text-2xl transition-all duration-300 ease-in-out
+                className={`text-gray-500 text-[3.8vw] pt-2 pb-1 xl:pb-1 xl:text-2xl transition-all duration-300 ease-in-out
           ${
             location.pathname === link.href
-              ? "border-b-[3px] border-gray-500 text-gray-800"
-              : "hover:border-b-[3px] hover:border-gray-500 border-b-[3px] border-transparent hover:text-[#323232]"
+              ? "border-b-[0.5vw] xl:border-b-[3px] border-gray-500 text-gray-800"
+              : "hover:border-b-[0.5vw] hover:border-gray-500 border-b-[0.5vw] xl:hover:border-b-[3px] xl:hover:border-gray-500 xl:border-b-[3px] border-transparent hover:text-[#323232]"
           }`}
               >
                 {link.label}

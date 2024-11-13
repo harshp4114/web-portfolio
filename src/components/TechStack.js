@@ -1,21 +1,4 @@
 import Tech from "./Tech";
-import springImg from "../assets/images/spring.jpeg";
-import angularImg from "../assets/images/angular.png";
-import cImg from "../assets/images/c.jpeg";
-import cPlusImg from "../assets/images/cplus.jpeg";
-import cSharpImg from "../assets/images/csharp.png";
-import cssImg from "../assets/images/css.png";
-import dartImg from "../assets/images/dart.jpeg";
-import flutterImg from "../assets/images/flutter.png";
-import htmlImg from "../assets/images/html.png";
-import javaImg from "../assets/images/java.png";
-import javaScriptImg from "../assets/images/javascript.png";
-import mongoImg from "../assets/images/mongo.jpeg";
-import mysqlImg from "../assets/images/mysql.png";
-import nodeImg from "../assets/images/node.png";
-import phpImg from "../assets/images/php.png";
-import postmanImg from "../assets/images/postman.png";
-import reactImg from "../assets/images/react.jpeg";
 import gsap from "gsap";
 import { useEffect } from "react";
 
@@ -37,8 +20,8 @@ const TechStack = () => {
   }, []);
   
   return (
-    <div id="stack" className="w-[24rem] h-[24rem] flex flex-wrap-reverse opacity-1 content-start justify-end border-8 border-black border-t-0 rounded-b-xl">
-    <div className="w-[24rem] h-[24rem] flex flex-wrap-reverse content-start justify-end border-2 border-white border-t-0 rounded-b-xl">
+    <div id="stack" className="w-[70vw] h-[70vw] flex flex-wrap-reverse opacity-1 content-start justify-end border-8 border-black border-t-0 rounded-b-xl xl:w-[24rem] xl:h-[24rem] xl:flex xl:flex-wrap-reverse opacity-1 xl:content-start xl:justify-end xl:border-8 xl:border-black xl:border-t-0 xl:rounded-b-xl">
+    <div className="w-[70vw] h-[70vw] flex flex-wrap-reverse content-start justify-end border-2 border-white border-t-0 rounded-b-xl xl:w-[24rem] xl:h-[24rem] xl:flex xl:flex-wrap-reverse xl:content-start xl:justify-end xl:border-2 xl:border-white xl:border-t-0 xl:rounded-b-xl">
       <Tech path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314701/spring_kckgkx.jpg" url="https://spring.io/"/>
       <Tech path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314701/angular_rhrpcq.png" url="https://angular.dev/"/>
       <Tech path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314701/c_dycs6h.jpg" url="https://www.learn-c.org/"/>

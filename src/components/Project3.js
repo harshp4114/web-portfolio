@@ -8,12 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 const Project3 = () => {
   useEffect(() => {
     ScrollTrigger.create({
-      trigger: "#project3", 
-      start: "top top", 
-      end: "bottom top", 
-      pin: true, 
-      pinSpacing: false, 
-      scrub: true, 
+      trigger: "#project3",
+      start: "top top",
+      end: "bottom top",
+      pin: true,
+      pinSpacing: false,
+      scrub: true,
     });
   }, []);
 
@@ -31,26 +31,34 @@ const Project3 = () => {
 
         <div className="absolute inset-0 bg-black/50"></div>
 
-        <div className="absolute top-0 left-0 w-1/2 h-full bg-black/50">
+        <div className="absolute top-0  left-0 w-1/2 h-full bg-black/50">
           <div className="absolute top-0 left-0 w-full h-full bg-black/50 flex justify-center items-center">
-            <div className="z-40 font-dm-sans p-4">
-              <h1 className="font-NumFont text-gray-400 text-[4.5rem]">03</h1>
-              <h1 className="font-NumFont text-white font-thin leading-3 mt-7 text-[5rem]">
+            <div className="z-40 w-full font-dm-sans flex flex-wrap content-center justify-start items-center xl:block xl:w-auto xl:p-4 p-4">
+              <h1 className="font-NumFont text-gray-400 text-[8vw]">03</h1>
+              <h1 className="font-NumFont text-white font-thin leading-3 basis-full mt-3 mb-6 text-[6.5vw] xl:leading-3 xl:mt-7 xl:text-[5rem]">
                 Event Hub
               </h1>
-              <h1 className="font-dm-sans font-extralight text-white text-[1.4rem] pl-2 w-[30rem] mt-14">
-              Where Events Meet Opportunity: Hosts Create, Sponsors Compete, and Auctions Drive Success!
+              <h1 className="font-dm-sans font-extralight text-white text-[4vw] w-[30rem] xl:font-dm-sans xl:font-extralight xl:text-white xl:text-[1.4rem] xl:pl-2 xl:w-[30rem] xl:mt-14">
+                Where Events Meet Opportunity: Hosts Create, Sponsors Compete,
+                and Auctions Drive Success!
               </h1>
 
-              <div className="w-full flex">
-              <a
-                className="font-dm-sans font-extralight text-[1.4rem] w-44 flex justify-center text-white items-center h-12 bg-black border-2 border-gray-300 mt-5 ml-2 rounded-lg hover:bg-gray-300 hover:text-black transition-all duration-1s ease-in "
-                href="https://github.com/Dev22Patel/EventHub"  target="_blank"
+              <div className="w-full flex flex-wrap justify-start xl:flex-nowrap">
+                <a
+                  className="font-dm-sans font-extralight text-[4vw] w-[34vw] flex justify-center mt-5 text-white items-center h-[10vw] bg-black border-2 border-gray-300 rounded-lg hover:bg-gray-300 hover:text-black transition-all duration-1s ease-in xl:font-dm-sans xl:font-extralight xl:text-[1.4rem] xl:w-44 xl:flex xl:justify-center xl:text-white xl:items-center xl:h-12 xl:bg-black xl:border-2 xl:border-gray-300 xl:mt-5 xl:ml-2 xl:rounded-lg xl:hover:bg-gray-300 xl:hover:text-black xl:transition-all duration-1s xl:ease-in"
+                  href="https://github.com/Dev22Patel/EventHub"
+                  target="_blank"
                 >
-                View Project
-              </a>
-              <a href="https://event-hub-topaz-seven.vercel.app/" target="_blank" className="font-dm-sans font-extralight ml-8 text-[1.4rem] w-44 flex justify-center text-white items-center h-12 bg-black border-2 border-gray-300 mt-5  rounded-lg hover:bg-gray-300 hover:text-black transition-all duration-1s ease-in ">Live Demo</a>
-                </div>
+                  View Project
+                </a>
+                <a
+                  href="https://event-hub-topaz-seven.vercel.app/"
+                  target="_blank"
+                  className="font-dm-sans font-extralight text-[4vw] w-[34vw] flex justify-center mt-3 text-white items-center h-[10vw] bg-black border-2 border-gray-300 rounded-lg hover:bg-gray-300 hover:text-black transition-all duration-1s ease-in xl:font-dm-sans xl:font-extralight xl:ml-8 xl:text-[1.4rem] xl:w-44 xl:flex xl:justify-center xl:text-white xl:items-center xl:h-12 xl:bg-black xl:border-2 xl:border-gray-300 xl:mt-5  xl:rounded-lg xl:hover:bg-gray-300 xl:hover:text-black xl:transition-all duration-1s xl:ease-in"
+                >
+                  Live Demo
+                </a>
+              </div>
             </div>
           </div>
         </div>
