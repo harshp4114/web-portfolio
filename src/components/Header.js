@@ -11,7 +11,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="bg-white pt-[1.8vw] px-0 m-3 mb-0 mt-0 xl:pt-4 xl:px-6 flex justify-between items-center xl:m-16 xl:mb-0 xl:mt-0">
+    <div className="bg-white w-full pt-[1.8vw] px-0 m-3 mb-0 mt-0 top-0 left-0 xl:static xl:w-auto fixed xl:pt-4 xl:px-6 flex justify-between items-center xl:m-16 xl:mb-0 xl:mt-0">
       <div className="flex mt-4 items-center xl:space-x-2 xl:mt-12">
         <a href="https://harshkp-portfolio.netlify.app/">
           <svg
@@ -69,7 +69,7 @@ const Header = () => {
         </a>
       </div>
 
-      <nav className="mt-2 xl:mt-12">
+      <nav className="mt-2 xl:mt-12 mr-5">
         <ul className="flex space-x-[3vw] xl:space-x-8 xl:pb-3">
           {links.map((link) => (
             <li key={link.href}>

@@ -34,10 +34,10 @@ const Project1 = () => {
           <div className="absolute top-0 left-0 w-full h-full bg-black/50 flex justify-center items-center xl:absolute xl:top-0 xl:left-0 xl:w-full xl:h-full xl:bg-black/50 xl:flex xl:justify-center xl:items-center">
             <div className="z-40 w-full font-dm-sans flex flex-wrap content-center justify-start items-center xl:block p-4 xl:w-auto xl:z-40 xl:font-dm-sans xl:p-4">
               <h1 className="font-NumFont text-gray-400 text-[8vw] xl:font-NumFont xl:text-gray-400 xl:text-[4.5rem]">01</h1>
-              <h1 className="font-NumFont leading-3 mt-3 mb-6 text-white font-thin text-[6.5vw] xl:font-NumFont xl:text-white xl:font-thin xl:leading-3 xl:mt-7 xl:text-[5rem]">
+              <h1 className="font-NumFont basis-full leading-3 mt-3 mb-6 text-white font-thin text-[6.5vw] xl:font-NumFont xl:text-white xl:font-thin xl:leading-3 xl:mt-7 xl:text-[5rem]">
                 VisuAlgo
               </h1>
-              <h1 className="font-dm-sans font-extralight text-white text-[4vw] pl-2 w-[30rem] xl:font-dm-sans xl:font-extralight xl:text-white xl:text-[1.4rem] xl:pl-2 xl:w-[30rem] xl:mt-14">
+              <h1 className="font-dm-sans basis-full font-extralight text-white text-[4vw] pl-2 w-[30rem] xl:font-dm-sans xl:font-extralight xl:text-white xl:text-[1.4rem] xl:pl-2 xl:w-[30rem] xl:mt-14">
                 Bringing Sorting Algorithms to Life – Visualize the Power of
                 Order!
               </h1>
