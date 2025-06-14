@@ -63,7 +63,7 @@ const Introduction = () => {
           id="para-intro"
           className="pt-[0rem] text-[4.5vw] top-[27rem]  xl:pt-[4.9rem] xl:pl-24 xl:text-[1.2rem] text-gray-700 leading-relaxed opacity-0 xl:max-w-2xl fixed xl:top-[26.7rem] z-0"
         >
-          I’m Harsh Patadia, a third-year Computer Engineering student with a
+          I’m Harsh Patadia, a fourth-year Computer Engineering student with a
           passion for coding and web development. I enjoy exploring cutting-edge
           technologies and transforming ideas into impactful, real-world
           solutions.
