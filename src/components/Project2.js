@@ -34,7 +34,7 @@ const Project2 = () => {
         <div className="absolute top-0 left-1/2 w-1/2 h-full bg-black/50">
           <div className="absolute top-0 w-full h-full bg-black/50 flex justify-center items-center">
             <div className="z-40 w-full font-dm-sans flex flex-wrap content-center justify-start items-center xl:block xl:w-auto p-4">
-              <h1 className="font-NumFont text-gray-400 text-[8vw] xl:font-NumFont xl:text-gray-400 xl:text-[4.5rem]">
+              <h1 className="font-NumFont text-gray-400 w-full text-[8vw] xl:font-NumFont xl:text-gray-400 xl:text-[4.5rem]">
                 02
               </h1>
               <h1 className="font-NumFont text-white font-thin leading-3 mt-3 mb-6 text-[6.5vw] xl:font-NumFont xl:text-white xl:font-thin xl:leading-3 xl:mt-7 xl:text-[5rem]">
