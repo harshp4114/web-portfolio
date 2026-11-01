@@ -25,31 +25,29 @@ const TechStack = () => {
     >
       <div className="w-[75vw] h-[75vw] flex flex-wrap-reverse content-start justify-end border-2 border-white border-t-0 rounded-b-xl xl:w-[24rem] xl:h-[24rem] xl:flex xl:flex-wrap-reverse xl:content-start xl:justify-end xl:border-2 xl:border-white xl:border-t-0 xl:rounded-b-xl">
         <Tech
-          path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314701/spring_kckgkx.jpg"
-          url="https://spring.io/"
+          path="https://github.com/frappe.png?size=200"
+          url="https://frappe.io/framework"
         />
         <Tech
-          path="https://res.cloudinary.com/dlh2n274r/image/upload/web-socket_lfokl6.png
-"
-          url="https://websocket.org/"
+          path="https://github.com/socketio.png?size=200"
+          url="https://socket.io/"
         />
-         <Tech
+        <Tech
           path="https://res.cloudinary.com/dlh2n274r/image/upload/jwt_unuukg.svg"
           url="https://jwt.io/"
         />
-
 
         <Tech
           path="https://res.cloudinary.com/dlh2n274r/image/upload/ts.svg_vhgtld.png"
           url="https://www.typescriptlang.org/"
         />
         <Tech
-          path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314701/angular_rhrpcq.png"
-          url="https://angular.dev/"
+          path="https://github.com/nextjs.png?size=200"
+          url="https://nextjs.org/"
         />
         <Tech
-          path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314701/c_dycs6h.jpg"
-          url="https://www.learn-c.org/"
+          path="https://github.com/python.png?size=200"
+          url="https://www.python.org/"
         />
         <Tech
           path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314701/cplus_lmbbng.jpg"
@@ -68,8 +66,8 @@ const TechStack = () => {
           url="https://www.postman.com/"
         />
         <Tech
-          path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314701/css_orn9g1.png"
-          url="https://www.w3.org/Style/CSS/Overview.en.html"
+          path="https://github.com/tailwindlabs.png?size=200"
+          url="https://tailwindcss.com/"
         />
         <Tech
           path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314705/node_fcsgpx.png"
@@ -93,20 +91,24 @@ const TechStack = () => {
         />
         <div id="scroll" className="hidden"></div>
         <Tech
-          path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314702/html_lulkrr.png"
-          url="https://html.com/"
+          path="https://github.com/expressjs.png?size=200"
+          url="https://expressjs.com/"
         />
         <Tech
-          path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314701/dart_felk5u.jpg"
-          url="https://dart.dev/"
+          path="https://github.com/aspnet.png?size=200"
+          url="https://dotnet.microsoft.com/en-us/apps/aspnet/mvc"
         />
         <Tech
-          path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314702/flutter_qyex37.png"
-          url="https://flutter.dev/"
+          path="https://github.com/git.png?size=200"
+          url="https://git-scm.com/"
         />
         <Tech
-          path="https://res.cloudinary.com/dlh2n274r/image/upload/v1731314706/php_akuaki.png"
-          url="https://www.php.net/"
+          path="https://github.com/erpnext.png?size=200"
+          url="https://erpnext.com/"
+        />
+        <Tech
+          path="https://github.com/github.png?size=200"
+          url="https://github.com/"
         />
       </div>
     </div>
