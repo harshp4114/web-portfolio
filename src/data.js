@@ -1,3 +1,5 @@
+import resumeFile from "./assets/resume.pdf";
+
 // Single source for the portfolio's content (mirrors resume.txt).
 
 const gh = (org) => `https://github.com/${org}.png?size=80`;
@@ -21,7 +23,6 @@ export const projects = [
     stack: ["React.js", "Node.js", "FastAPI", "MongoDB", "scikit-learn", "Socket.IO", "JWT", "Tailwind CSS"],
     summary:
       "Early diagnosis and quick access to a doctor are hard for common symptoms. SymptoCure predicts likely diseases with a machine-learning model and connects patients to doctors for real-time consultations.",
-    image: cdn("symptocure_bao74h.png"),
     links: [
       { label: "Live demo", href: "https://symptocure.netlify.app/" },
       { label: "Source", href: "https://github.com/harshp4114/SymptoCure" },
@@ -34,7 +35,6 @@ export const projects = [
     stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Socket.IO", "JWT", "Tailwind CSS"],
     summary:
       "Rural and low-income communities are shut out of digital finance. RuralFin is a hybrid cash-digital wallet with agent-assisted services and budgeting features. Top 75 finalist, Odoo x Charusat Hackathon 2025.",
-    image: cdn("rural_fin_chat_dvvhuo.png"),
     links: [
       { label: "Live demo", href: "https://ruralfin.netlify.app/" },
       { label: "Source", href: "https://github.com/Jhil20/Exception-RuralFin" },
@@ -43,7 +43,7 @@ export const projects = [
   {
     name: "Bank Integration",
     type: "Work",
-    status: "6 PRs",
+    prKey: "bank", // status shows the live merged-PR count
     stack: ["Python", "JavaScript", "Frappe", "ERPNext", "Selenium"],
     summary:
       "HDFC portal changes broke the ERPNext online payment automation at Resilient Tech. I rebuilt the workflow and added bulk payments, IMPS/RTGS configuration and automated receipt management.",
@@ -61,13 +61,13 @@ export const projects = [
 
 export const upstream = [
   {
-    count: "18",
+    prKey: "frappe",
     repo: "frappe/frappe",
     note: "Feature development, bug fixes and refactors",
     href: "https://github.com/frappe/frappe/pulls?q=is%3Apr+state%3Amerged+involves%3Aharshp4114",
   },
   {
-    count: "4",
+    prKey: "erpnext",
     repo: "frappe/erpnext",
     note: "Bug fixes and refactors",
     href: "https://github.com/frappe/erpnext/pulls?q=is%3Apr+state%3Amerged+involves%3Aharshp4114",
@@ -129,7 +129,8 @@ export const skills = [
 
 export const contacts = [
   { label: "GitHub", href: "https://github.com/harshp4114" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/harsh-patadia-a677a4289/" },
+  { label: "Resume", href: resumeFile, download: "HarshKPatadia_resume.pdf" },
   { label: "Email", href: "mailto:harshpatadia4114@gmail.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/harsh-patadia-a677a4289/" },
   { label: "LeetCode", href: "https://leetcode.com/u/harsh4114/" },
 ];

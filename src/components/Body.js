@@ -7,11 +7,13 @@ import Departures from "./Departures";
 import TechStack from "./TechStack";
 import Contact from "./Contact";
 import { flip } from "./Flaps";
+import { usePrCounts } from "../prCounts";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Body = () => {
   const root = useRef(null);
+  const prCounts = usePrCounts();
 
   useEffect(() => {
     const mm = gsap.matchMedia(root);
@@ -53,8 +55,8 @@ const Body = () => {
   return (
     <div className="wrap" ref={root}>
       <Header />
-      <Hero />
-      <Departures />
+      <Hero prCounts={prCounts} />
+      <Departures prCounts={prCounts} />
       <TechStack />
       <Contact />
     </div>

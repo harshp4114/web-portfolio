@@ -1,4 +1,3 @@
-import resumeFile from "../assets/resume.pdf";
 import { contacts } from "../data";
 
 const Arrow = () => (
@@ -16,11 +15,14 @@ const Contact = () => (
       </div>
       <div className="counter">
         {contacts.map((c) => (
-          <a key={c.label} href={c.href} {...(c.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}>
+          <a
+            key={c.label}
+            href={c.href}
+            {...(c.download ? { download: c.download } : c.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
+          >
             {c.label} <Arrow />
           </a>
         ))}
-        <a href={resumeFile} download="HarshKPatadia_resume.pdf">Resume <Arrow /></a>
       </div>
     </section>
     <footer className="foot">Harsh Patadia · Vadodara, Gujarat</footer>

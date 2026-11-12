@@ -1,6 +1,6 @@
 import resumeFile from "../assets/resume.pdf";
 
-const Hero = () => (
+const Hero = ({ prCounts }) => (
   <header className="station" id="top">
     <div className="nameboard">
       <span className="post" aria-hidden="true"></span>
@@ -14,7 +14,7 @@ const Hero = () => (
       <p className="who">Harsh Patadia · Full-Stack Developer</p>
       <p>
         I’m Harsh Patadia, a Full-Stack Developer at Resilient Tech with a passion for coding and
-        web development. I’ve contributed 22 merged pull requests to Frappe and ERPNext, and I
+        web development. I’ve contributed {prCounts.frappe + prCounts.erpnext} merged pull requests to Frappe and ERPNext, and I
         enjoy transforming ideas into impactful, real-world solutions.
       </p>
       <a className="ticket" href={resumeFile} download="HarshKPatadia_resume.pdf">

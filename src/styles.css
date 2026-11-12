@@ -60,35 +60,44 @@ a { color: inherit; text-underline-offset: .2em; }
 .row { border-top: 1px solid #262b32; }
 .row > summary { list-style: none; cursor: pointer; padding: 14px 6px; }
 .row > summary::-webkit-details-marker { display: none; }
-.row > summary:hover [data-c], .arr:hover [data-c], a.tech:hover [data-c] { background: #2f3640; }
+.row > summary:hover [data-c], .arr:hover [data-c], a.tech:hover .flaps { background: #343c48; }
 .arr { text-decoration: none; padding: 14px 6px; }
 /* a flap cell is 1.64em tall (1em glyph + .32em padding top and bottom) */
 .flaps { display: flex; flex-wrap: wrap; gap: 3px calc(.5em + 4px); font: 700 var(--flap-size)/1 "Red Hat Mono"; text-transform: uppercase; }
 .flaps .word { display: flex; gap: 3px; }
-.flaps [data-c] { background: var(--flap); min-width: 1.05em; padding: .32em .08em; text-align: center; border-radius: 2px; position: relative; transition: background .2s; }
-.flaps [data-c]::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(0, 0, 0, .4); pointer-events: none; }
+.flaps [data-c] { background: var(--flap); min-width: 1.05em; padding: .32em .08em; text-align: center; border-radius: 2px; position: relative; isolation: isolate; transition: background .2s; }
+.flaps [data-c]::after { content: ""; position: absolute; z-index: -1; left: 0; right: 0; top: 50%; height: 1px; background: rgba(0, 0, 0, .4); pointer-events: none; } /* behind the letter, so it never crosses the glyph */
 .via { display: flex; flex-wrap: wrap; gap: 4px 6px; list-style: none; margin: 0; padding: 0; }
-.via li { font: 500 .85rem/1.2 Barlow; color: #d5dae2; border: 1px solid #343a43; border-radius: 3px; padding: 3px 7px; }
-.note { font: 500 .95rem Barlow; color: #d5dae2; }
+/* stack labels share the tech-stack panel style: mono, uppercase, dark panel */
+.via li { font: 700 .78rem/1 "Red Hat Mono"; text-transform: uppercase; letter-spacing: .03em; color: #fff; background: #272e38; border-radius: 2px; padding: .3em .6em; }
+/* descriptive text on boards matches the project descriptions */
+.note { font: 400 1.05rem/1.6 Barlow; color: #d9dde4; }
 .status { font: 700 .95rem "Red Hat Mono"; color: var(--green); text-transform: uppercase; white-space: nowrap; }
 .status.accent { color: var(--accent); }
 .toggle { display: inline-block; width: 10px; height: 10px; border-right: 2px solid var(--board-muted); border-bottom: 2px solid var(--board-muted); transform: rotate(45deg); margin-left: 10px; transition: transform .3s; vertical-align: 3px; }
 .row[open] .toggle { transform: rotate(225deg); vertical-align: -1px; }
-.detail { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; padding: 4px 6px 26px calc(5.5rem + 26px); color: #d9dde4; }
-.detail.solo { grid-template-columns: minmax(0, 1fr); }
+.detail { padding: 4px 6px 26px calc(5.5rem + 26px); color: #d9dde4; }
 .detail p { margin: 0 0 14px; max-width: 64ch; }
 .detail .links { display: flex; gap: 10px 18px; flex-wrap: wrap; font: 600 1rem "Barlow Condensed"; text-transform: uppercase; letter-spacing: .08em; }
-.detail .links a { color: var(--accent); }
-.detail img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 3px; display: block; }
+.detail .links a { color: var(--accent); position: relative; display: inline-block; text-decoration: none; transition: transform .25s cubic-bezier(.2, .8, .2, 1), color .25s; }
+.detail .links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .3s cubic-bezier(.2, .8, .2, 1); }
+.detail .links a:hover, .detail .links a:focus-visible { color: #ffc94d; transform: translateY(-2px); }
+.detail .links a:hover::after, .detail .links a:focus-visible::after { transform: scaleX(1); }
 
 /* tech stack board */
 .skill-row { display: grid; grid-template-columns: 13rem 1fr; gap: 12px 24px; padding: 18px 6px; border-top: 1px solid #262b32; align-items: start; }
 .skill-row:first-of-type { border-top: 0; }
 .skill-row h3 { margin: 4px 0 0; font: 700 1.15rem/1.2 "Barlow Condensed"; text-transform: uppercase; letter-spacing: .08em; color: var(--board-muted); }
 /* each tech is its logo as the first flap cell, then its name in flap cells */
-.techs { --flap-size: .85rem; display: flex; flex-wrap: wrap; gap: 14px 34px; list-style: none; margin: 0; padding: 0; }
-.tech { display: inline-flex; align-items: flex-start; gap: 3px; text-decoration: none; color: var(--flap-ink); font-size: var(--flap-size); }
-.tech .logo { flex: none; width: 1.64em; height: 1.64em; object-fit: contain; padding: .12em; background: #fff; border-radius: 2px; transition: transform .25s cubic-bezier(.2, .8, .2, 1); }
+.techs { --flap-size: .88rem; display: flex; flex-wrap: wrap; gap: 16px 30px; list-style: none; margin: 0; padding: 0; }
+.techs li { display: flex; }
+/* tech names: one flap panel per name (like destination panels), letters still flip */
+.techs .flaps { gap: 0 .5em; background: #272e38; color: #fff; padding: .3em .6em; border-radius: 2px; letter-spacing: .03em; transition: background .2s; }
+.techs .flaps .word { gap: 0; }
+.techs [data-c] { min-width: 0; padding: 0; background: none; }
+.techs [data-c]::after { display: none; }
+.tech { display: inline-flex; align-items: flex-start; gap: 4px; text-decoration: none; color: var(--flap-ink); font-size: var(--flap-size); }
+.tech .logo { flex: none; width: 1.6em; height: 1.6em; object-fit: contain; padding: .12em; background: #fff; border-radius: 2px; transition: transform .25s cubic-bezier(.2, .8, .2, 1); }
 a.tech:hover .logo { transform: scale(1.12); }
 
 /* enquiry counter */
@@ -108,10 +117,10 @@ a.tech:hover .logo { transform: scale(1.12); }
   .board { margin-top: 32px; }
   .cols { display: none; }
   :root { --flap-size: .78rem; }
-  .techs { --flap-size: .78rem; gap: 12px 24px; }
+  .techs { --flap-size: .85rem; gap: 12px 22px; }
   .row > summary, .arr { grid-template-columns: 1fr auto; gap: 10px 12px; }
   .row .type { display: none; }
   .row .via, .row .note { grid-column: 1 / -1; grid-row: 2; }
-  .detail { grid-template-columns: 1fr; padding-left: 6px; }
+  .detail { padding-left: 6px; }
   .skill-row { grid-template-columns: 1fr; }
 }
