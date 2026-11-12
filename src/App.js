@@ -1,18 +1,17 @@
 import React ,{useEffect} from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./components/Header";
+import "./styles.css";
 import Body from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const App = () => {
   useEffect(() => {
     const svgIcon = `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="96" height="96">
-        <g transform="translate(20, 70)">
-          <text x="-24" y="-5" font-family="Arial" font-weight="300" font-size="70" fill="#FFFFFF" font-style="italic">H</text>
-          <text x="17" y="35" transform="rotate(17)" font-family="Arial" font-weight="100" font-size="140" fill="#FFFFFF">/</text>
-          <text x="49" y="45" font-family="Arial" font-weight="300" font-size="70" fill="#FFFFFF" font-style="italic">P</text>
-        </g>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+        <rect x="2" y="8" width="28" height="48" rx="4" fill="#111418"/>
+        <rect x="34" y="8" width="28" height="48" rx="4" fill="#111418"/>
+        <text x="16" y="44" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-weight="700" font-size="32" fill="#ffb000">H</text>
+        <text x="48" y="44" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-weight="700" font-size="32" fill="#ffb000">P</text>
       </svg>
     `;
 

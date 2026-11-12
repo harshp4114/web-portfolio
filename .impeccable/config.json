@@ -1,0 +1,53 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "designs/ledger-printout.html"
+        ],
+        "createdAt": "2026-11-12T11:22:14.543Z",
+        "reason": "agent decision: green-bar tractor paper is the chosen direction's material"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "designs/drawing-sheet.html"
+        ],
+        "createdAt": "2026-11-12T11:22:14.577Z",
+        "reason": "agent decision: section hatching on a drawing sheet is the direction's notation"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "designs/drawing-sheet.html"
+        ],
+        "createdAt": "2026-11-12T11:22:14.615Z",
+        "reason": "agent decision: drafting-film grid is the drawing-sheet direction's ground"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "designs/film-poster.html"
+        ],
+        "createdAt": "2026-11-12T11:22:14.647Z",
+        "reason": "agent decision: airbrushed sky is the painted-poster direction's material"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "designs/film-poster.html"
+        ],
+        "createdAt": "2026-11-12T11:22:14.687Z",
+        "reason": "agent decision: uppercase billing block is film-poster credit convention"
+      }
+    ]
+  }
+}

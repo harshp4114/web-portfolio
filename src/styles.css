@@ -1,0 +1,117 @@
+/* Departure board: Indian Railways coach blue, black split-flap boards, LED amber. */
+:root {
+  --flap-size: clamp(.9rem, 1.2vw, 1rem);
+  --ground: #143a7b;     /* ICF coach blue */
+  --ground-deep: #0f2d61;
+  --paper: #f4f6fb;      /* lettering on the blue */
+  --muted: #c3cee6;
+  --accent: #ffb000;     /* LED amber: active */
+  --board: #111418;
+  --flap: #1f242b;
+  --flap-ink: #f1f3f6;
+  --board-muted: #9aa3b0;
+  --green: #3ddc84;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--ground); color: var(--paper); font: 400 1.05rem/1.6 Barlow, sans-serif; }
+::selection { background: var(--accent); color: var(--board); }
+a { color: inherit; text-underline-offset: .2em; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.wrap { width: min(1200px, 100% - 32px); margin-inline: auto; }
+
+/* nav */
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 3px solid var(--paper); box-shadow: 0 6px 0 -3px var(--ground), 0 7px 0 -3px var(--muted); }
+.nav .mark { display: flex; align-items: center; gap: 10px; font: 800 1.4rem/1 "Barlow Condensed"; text-decoration: none; }
+/* monogram: two split-flap tiles from the departure board; they flip on hover */
+.logo-flaps { --flap-size: 1.5rem; }
+.logo-flaps [data-c] { background: var(--board); color: var(--accent); min-width: 1.25em; padding: .3em .12em; border-radius: 3px; box-shadow: 0 6px 12px -6px rgba(0, 0, 0, .6); }
+.nav ul { display: flex; gap: clamp(14px, 3vw, 36px); list-style: none; margin: 0; padding: 0; font: 600 1.05rem "Barlow Condensed"; text-transform: uppercase; letter-spacing: .06em; }
+.nav a { text-decoration: none; }
+.nav ul a { border-bottom: 3px solid transparent; transition: border-color .25s; }
+.nav ul a:hover { border-color: var(--accent); }
+
+/* station nameboard */
+.station { padding: clamp(40px, 8vw, 96px) 0 clamp(32px, 6vw, 64px); display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(24px, 5vw, 72px); align-items: end; }
+.nameboard { position: relative; border: 6px solid var(--paper); padding: clamp(16px, 3vw, 32px) clamp(18px, 3vw, 36px); background: var(--ground-deep); box-shadow: 0 22px 40px -22px rgba(0, 0, 0, .55); }
+.nameboard .post { position: absolute; bottom: -70px; width: 14px; height: 64px; background: var(--paper); }
+.nameboard .post:first-child { left: 18%; }
+.nameboard .post:nth-child(2) { right: 18%; }
+.nameboard .hi { display: block; font: 700 clamp(1.6rem, 3.8vw, 2.8rem)/1.25 "Noto Sans Devanagari"; color: var(--muted); }
+.nameboard h1 { margin: .15em 0 0; font: 800 clamp(3.4rem, 10vw, 7.4rem)/.9 "Barlow Condensed"; letter-spacing: -.01em; text-transform: uppercase; }
+.nameboard h1 span { display: inline-block; }
+.intro .who { font: 800 clamp(1.6rem, 3vw, 2.2rem)/1.05 "Barlow Condensed"; text-transform: uppercase; margin: 0 0 .5em; }
+.intro p { margin: 0 0 1em; max-width: 46ch; font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: var(--muted); }
+.ticket { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--board); padding: 12px 20px; font: 700 1.1rem "Barlow Condensed"; text-transform: uppercase; letter-spacing: .08em; text-decoration: none; transition: transform .25s cubic-bezier(.2, .8, .2, 1), box-shadow .25s; }
+.ticket:hover { transform: translateY(-3px); box-shadow: 0 10px 18px -10px rgba(0, 0, 0, .6); }
+
+/* split-flap boards */
+.board { background: var(--board); color: var(--flap-ink); padding: clamp(20px, 3vw, 36px); margin-top: 72px; border-radius: 6px; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .7); }
+.board + .board { margin-top: 28px; }
+.board header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px 24px; border-bottom: 2px solid #2c3138; padding-bottom: 14px; margin-bottom: 8px; }
+.board h2 { display: flex; align-items: center; gap: .55em; margin: 0; font: 800 clamp(1.8rem, 4vw, 2.8rem)/1 "Barlow Condensed"; text-transform: uppercase; letter-spacing: .04em; color: var(--accent); }
+.board h2 small { font: 700 1rem/1 "Noto Sans Devanagari"; color: var(--board-muted); letter-spacing: 0; padding-top: .2em; }
+.board .clock { font: 700 1.3rem/1 "Red Hat Mono"; color: var(--accent); }
+/* the header already draws a rule; the first row under it must not add a second one */
+.board > header + .row { border-top: 0; }
+/* fixed columns so every row lines up; the project column fits 16 flap cells */
+.cols, .row > summary, .arr { display: grid; grid-template-columns: 5.5rem 20.5rem minmax(0, 1fr) 8rem; gap: 14px 20px; align-items: center; }
+.cols { font: 600 .85rem "Barlow Condensed"; text-transform: uppercase; letter-spacing: .12em; color: var(--board-muted); padding: 8px 6px; }
+.row { border-top: 1px solid #262b32; }
+.row > summary { list-style: none; cursor: pointer; padding: 14px 6px; }
+.row > summary::-webkit-details-marker { display: none; }
+.row > summary:hover [data-c], .arr:hover [data-c], a.tech:hover [data-c] { background: #2f3640; }
+.arr { text-decoration: none; padding: 14px 6px; }
+/* a flap cell is 1.64em tall (1em glyph + .32em padding top and bottom) */
+.flaps { display: flex; flex-wrap: wrap; gap: 3px calc(.5em + 4px); font: 700 var(--flap-size)/1 "Red Hat Mono"; text-transform: uppercase; }
+.flaps .word { display: flex; gap: 3px; }
+.flaps [data-c] { background: var(--flap); min-width: 1.05em; padding: .32em .08em; text-align: center; border-radius: 2px; position: relative; transition: background .2s; }
+.flaps [data-c]::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(0, 0, 0, .4); pointer-events: none; }
+.via { display: flex; flex-wrap: wrap; gap: 4px 6px; list-style: none; margin: 0; padding: 0; }
+.via li { font: 500 .85rem/1.2 Barlow; color: #d5dae2; border: 1px solid #343a43; border-radius: 3px; padding: 3px 7px; }
+.note { font: 500 .95rem Barlow; color: #d5dae2; }
+.status { font: 700 .95rem "Red Hat Mono"; color: var(--green); text-transform: uppercase; white-space: nowrap; }
+.status.accent { color: var(--accent); }
+.toggle { display: inline-block; width: 10px; height: 10px; border-right: 2px solid var(--board-muted); border-bottom: 2px solid var(--board-muted); transform: rotate(45deg); margin-left: 10px; transition: transform .3s; vertical-align: 3px; }
+.row[open] .toggle { transform: rotate(225deg); vertical-align: -1px; }
+.detail { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; padding: 4px 6px 26px calc(5.5rem + 26px); color: #d9dde4; }
+.detail.solo { grid-template-columns: minmax(0, 1fr); }
+.detail p { margin: 0 0 14px; max-width: 64ch; }
+.detail .links { display: flex; gap: 10px 18px; flex-wrap: wrap; font: 600 1rem "Barlow Condensed"; text-transform: uppercase; letter-spacing: .08em; }
+.detail .links a { color: var(--accent); }
+.detail img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 3px; display: block; }
+
+/* tech stack board */
+.skill-row { display: grid; grid-template-columns: 13rem 1fr; gap: 12px 24px; padding: 18px 6px; border-top: 1px solid #262b32; align-items: start; }
+.skill-row:first-of-type { border-top: 0; }
+.skill-row h3 { margin: 4px 0 0; font: 700 1.15rem/1.2 "Barlow Condensed"; text-transform: uppercase; letter-spacing: .08em; color: var(--board-muted); }
+/* each tech is its logo as the first flap cell, then its name in flap cells */
+.techs { --flap-size: .85rem; display: flex; flex-wrap: wrap; gap: 14px 34px; list-style: none; margin: 0; padding: 0; }
+.tech { display: inline-flex; align-items: flex-start; gap: 3px; text-decoration: none; color: var(--flap-ink); font-size: var(--flap-size); }
+.tech .logo { flex: none; width: 1.64em; height: 1.64em; object-fit: contain; padding: .12em; background: #fff; border-radius: 2px; transition: transform .25s cubic-bezier(.2, .8, .2, 1); }
+a.tech:hover .logo { transform: scale(1.12); }
+
+/* enquiry counter */
+.enquiry { border-top: 3px solid var(--paper); margin-top: 72px; padding: 48px 0 72px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; }
+.enquiry h2 { font: 800 clamp(2rem, 5vw, 3.4rem)/1 "Barlow Condensed"; text-transform: uppercase; margin: 0 0 16px; }
+.enquiry p { color: var(--muted); max-width: 44ch; margin: 0; }
+.counter { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); border: 3px solid var(--paper); }
+.counter a { display: flex; justify-content: space-between; align-items: center; padding: 20px; font: 700 1.35rem "Barlow Condensed"; text-transform: uppercase; text-decoration: none; border: 1.5px solid var(--paper); transition: background .25s, color .25s; }
+.counter a:hover { background: var(--accent); color: var(--board); }
+.counter svg { width: 22px; height: 22px; flex: none; transition: transform .25s; }
+.counter a:hover svg { transform: translate(3px, -3px); }
+.foot { font: 500 .9rem Barlow; color: var(--muted); padding: 0 0 32px; }
+
+@media (max-width: 860px) {
+  .station, .enquiry { grid-template-columns: 1fr; }
+  .nameboard .post { display: none; }
+  .board { margin-top: 32px; }
+  .cols { display: none; }
+  :root { --flap-size: .78rem; }
+  .techs { --flap-size: .78rem; gap: 12px 24px; }
+  .row > summary, .arr { grid-template-columns: 1fr auto; gap: 10px 12px; }
+  .row .type { display: none; }
+  .row .via, .row .note { grid-column: 1 / -1; grid-row: 2; }
+  .detail { grid-template-columns: 1fr; padding-left: 6px; }
+  .skill-row { grid-template-columns: 1fr; }
+}

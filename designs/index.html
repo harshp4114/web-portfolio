@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio directions</title>
+<style>
+  :root { --ground: #f4f4f2; --ink: #16181c; --muted: #555a63; --line: #d9dad6; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font: 400 1.05rem/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { width: min(880px, 100% - 32px); margin: 0 auto; padding: 64px 0; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; letter-spacing: -.03em; margin: 0 0 12px; }
+  p.lede { color: var(--muted); max-width: 60ch; margin: 0 0 40px; }
+  ol { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+  li a { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; padding: 22px 4px; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit; }
+  li a:hover b { text-decoration: underline; text-underline-offset: .2em; }
+  li b { font-size: 1.35rem; letter-spacing: -.01em; }
+  li span { color: var(--muted); grid-column: 1; }
+  li em { font-style: normal; color: var(--muted); grid-row: 1; grid-column: 2; font-size: .9rem; }
+  a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Five directions for the portfolio</h1>
+  <p class="lede">Same content in each: the Hello World. opener, four projects, 22 merged Frappe/ERPNext PRs, stack, contact and resume. Each one is a different visual world.</p>
+  <ol>
+    <li><a href="departure-board.html"><b>Departure board</b><span>Indian Railways station: yellow nameboard in English, Hindi and Gujarati; projects on a split-flap board.</span><em>bold</em></a></li>
+    <li><a href="merge-graph.html"><b>Merge graph</b><span>A git history: Hello World. is the initial commit, each project a coloured branch merging back into main.</span><em>clean</em></a></li>
+    <li><a href="ledger-printout.html"><b>Ledger printout</b><span>ERP green-bar tractor paper: projects as ledger vouchers, merged PRs as the closing balance, skills as a chart of accounts.</span><em>nerdy</em></a></li>
+    <li><a href="drawing-sheet.html"><b>Drawing sheet</b><span>Engineering drawing: dimensioned lettering, projects as detail views, merged PRs in the revision table, contact in the title block.</span><em>precise</em></a></li>
+    <li><a href="film-poster.html"><b>Film poster</b><span>Hand-painted Bombay poster: airbrushed sky, outlined bilingual title, projects now showing, the stack in the billing block.</span><em>loud</em></a></li>
+  </ol>
+</main>
+</body>
+</html>

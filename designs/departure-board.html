@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harsh Patadia — Departures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;800&family=Barlow:wght@400;500&family=Red+Hat+Mono:wght@500;700&family=Noto+Sans+Devanagari:wght@700&family=Noto+Sans+Gujarati:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #f6c500;
+    --yellow-deep: #e2b300;
+    --ink: #111;
+    --board: #151515;
+    --flap: #232323;
+    --flap-ink: #f4f1e8;
+    --amber: #ffb000;
+    --green: #3ddc84;
+    --rule: rgba(0,0,0,.85);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--yellow); color: var(--ink); font: 400 1.05rem/1.6 Barlow, sans-serif; }
+  ::selection { background: var(--ink); color: var(--yellow); }
+  a { color: inherit; text-underline-offset: .2em; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .board :focus-visible { outline-color: var(--amber); }
+  .wrap { width: min(1200px, 100% - 32px); margin-inline: auto; }
+
+  /* nav: platform signage strip */
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 4px solid var(--ink); }
+  nav .mark { font: 800 1.4rem/1 "Barlow Condensed"; letter-spacing: .02em; text-decoration: none; }
+  nav ul { display: flex; gap: clamp(14px, 3vw, 36px); list-style: none; margin: 0; padding: 0; font: 600 1.05rem "Barlow Condensed"; text-transform: uppercase; letter-spacing: .06em; }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; text-decoration-thickness: 3px; }
+
+  /* station nameboard */
+  .station { padding: clamp(40px, 8vw, 96px) 0 clamp(32px, 6vw, 64px); display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(24px, 5vw, 72px); align-items: end; }
+  .nameboard { border: 6px solid var(--ink); padding: clamp(16px, 3vw, 32px) clamp(18px, 3vw, 36px); position: relative; background: var(--yellow); box-shadow: 0 18px 40px -18px rgba(0,0,0,.35); }
+  .nameboard::before, .nameboard::after { content: ""; position: absolute; bottom: -64px; width: 14px; height: 58px; background: var(--ink); }
+  .nameboard::before { left: 18%; } .nameboard::after { right: 18%; }
+  .nameboard .hi { font: 700 clamp(1.5rem, 3.6vw, 2.6rem)/1.2 "Noto Sans Devanagari"; display: block; }
+  .nameboard .gu { font: 700 clamp(1.5rem, 3.6vw, 2.6rem)/1.3 "Noto Sans Gujarati"; display: block; }
+  .nameboard h1 { margin: .1em 0 0; font: 800 clamp(3.4rem, 10vw, 7.4rem)/.9 "Barlow Condensed"; letter-spacing: -.01em; text-transform: uppercase; }
+  .intro p { margin: 0 0 1em; max-width: 46ch; font-size: clamp(1.05rem, 1.4vw, 1.2rem); }
+  .intro .who { font: 800 clamp(1.6rem, 3vw, 2.2rem)/1.05 "Barlow Condensed"; text-transform: uppercase; margin-bottom: .5em; }
+  .intro .ticket { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: var(--yellow); padding: 12px 20px; font: 600 1.1rem "Barlow Condensed"; text-transform: uppercase; letter-spacing: .08em; text-decoration: none; transition: transform .2s cubic-bezier(.2,.8,.2,1); }
+  .intro .ticket:hover { transform: translateY(-2px); }
+
+  /* split-flap board */
+  .board { background: var(--board); color: var(--flap-ink); padding: clamp(20px, 3vw, 36px); margin-top: 72px; border-radius: 6px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6); }
+  .board header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 24px; border-bottom: 2px solid #333; padding-bottom: 14px; margin-bottom: 8px; }
+  .board h2 { margin: 0; font: 800 clamp(1.8rem, 4vw, 2.8rem)/1 "Barlow Condensed"; text-transform: uppercase; letter-spacing: .04em; color: var(--yellow); }
+  .board h2 small { font: 700 1rem "Noto Sans Devanagari"; color: #bbb; margin-left: .6em; letter-spacing: 0; }
+  .board .clock { font: 700 1.3rem "Red Hat Mono"; color: var(--amber); }
+  .arr { text-decoration: none; padding: 12px 6px; }
+  .arr:hover .flaps span { background: #2d2d2d; }
+  .cols, .row > summary, .arr { display: grid; grid-template-columns: 6.5rem auto 1fr 8.5rem; gap: 14px; align-items: center; }
+  .cols { font: 600 .85rem "Barlow Condensed"; text-transform: uppercase; letter-spacing: .12em; color: #8d8d8d; padding: 8px 6px; }
+  .row { border-top: 1px solid #2c2c2c; }
+  .row > summary { list-style: none; cursor: pointer; padding: 12px 6px; }
+  .row > summary::-webkit-details-marker { display: none; }
+  .row > summary:hover .flaps span { background: #2d2d2d; }
+  .flaps { display: flex; flex-wrap: wrap; gap: 3px; font: 700 clamp(.95rem, 1.6vw, 1.25rem)/1 "Red Hat Mono"; text-transform: uppercase; }
+  .row .flaps { flex-wrap: nowrap; }
+  .flaps span { background: var(--flap); min-width: 1.05em; padding: .32em .08em; text-align: center; border-radius: 2px; position: relative; }
+  .flaps span::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #000; opacity: .6; }
+  .flaps span.sp { background: transparent; }
+  .flaps span.sp::after { display: none; }
+  .via { color: #c9c4b5; font: 500 .95rem Barlow; }
+  .status { font: 700 .95rem "Red Hat Mono"; color: var(--green); text-transform: uppercase; }
+  .status.amber { color: var(--amber); }
+  .detail { padding: 4px 6px 22px calc(6.5rem + 20px); color: #d9d4c6; max-width: 70rem; }
+  .detail p { margin: 0 0 12px; max-width: 68ch; }
+  .detail .links { display: flex; gap: 18px; flex-wrap: wrap; font: 600 1rem "Barlow Condensed"; text-transform: uppercase; letter-spacing: .08em; }
+  .detail .links a { color: var(--yellow); }
+  .detail img { width: min(520px, 100%); aspect-ratio: 16/9; object-fit: cover; border-radius: 3px; margin: 6px 0 14px; display: block; filter: saturate(.85); }
+
+  /* arrivals: merged upstream */
+  .arrivals { margin-top: 28px; }
+  .arrivals .row > summary { cursor: default; }
+
+  /* route chart for stack */
+  .route { padding: clamp(56px, 8vw, 96px) 0 24px; }
+  .route h2, .enquiry h2 { font: 800 clamp(2rem, 5vw, 3.4rem)/1 "Barlow Condensed"; text-transform: uppercase; margin: 0 0 28px; }
+  .line { position: relative; display: flex; flex-wrap: wrap; gap: 28px 0; list-style: none; padding: 0; margin: 0; }
+  .line li { flex: 1 0 8.5rem; position: relative; padding-top: 30px; font: 600 1.15rem "Barlow Condensed"; text-transform: uppercase; letter-spacing: .03em; }
+  .line li::before { content: ""; position: absolute; top: 9px; left: 0; right: 0; height: 6px; background: var(--ink); }
+  .line li::after { content: ""; position: absolute; top: 2px; left: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--yellow); border: 5px solid var(--ink); box-sizing: border-box; }
+  .line li small { display: block; font: 500 .85rem Barlow; text-transform: none; letter-spacing: 0; opacity: .75; }
+
+  /* enquiry counter */
+  .enquiry { border-top: 4px solid var(--ink); margin-top: 56px; padding: 48px 0 72px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; }
+  .counter { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); border: 4px solid var(--ink); }
+  .counter a { display: flex; justify-content: space-between; align-items: center; padding: 20px; font: 700 1.35rem "Barlow Condensed"; text-transform: uppercase; text-decoration: none; border: 2px solid var(--ink); transition: background .2s, color .2s; }
+  .counter a:hover { background: var(--ink); color: var(--yellow); }
+  .counter svg { width: 22px; height: 22px; flex: none; }
+  footer { font: 500 .9rem Barlow; padding: 0 0 32px; }
+
+  @media (max-width: 860px) {
+    .station, .enquiry { grid-template-columns: 1fr; }
+    .cols { display: none; }
+    .flaps { font-size: .78rem; }
+    .row > summary, .arr { grid-template-columns: 1fr auto; gap: 8px 12px; }
+    .row .dep { display: none; }
+    .row .via { grid-column: 1 / -1; }
+    .detail { padding-left: 6px; }
+    .nameboard::before, .nameboard::after { display: none; }
+    .board { margin-top: 32px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Primary">
+    <a class="mark" href="#top">H/P</a>
+    <ul>
+      <li><a href="#departures">Projects</a></li>
+      <li><a href="#route">Stack</a></li>
+      <li><a href="#enquiry">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="station" id="top">
+    <div class="nameboard">
+      <span class="hi" lang="hi">नमस्ते दुनिया</span>
+      <span class="gu" lang="gu">નમસ્તે દુનિયા</span>
+      <h1>Hello World.</h1>
+    </div>
+    <div class="intro">
+      <p class="who">Harsh Patadia · Full-Stack Developer</p>
+      <p>I’m Harsh Patadia, a Full-Stack Developer at Resilient Tech with a passion for coding and web development. I’ve contributed 22 merged pull requests to Frappe and ERPNext, and I enjoy transforming ideas into impactful, real-world solutions.</p>
+      <a class="ticket" href="../src/assets/resume.pdf" download="HarshKPatadia_resume.pdf">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 3v13m0 0-5-5m5 5 5-5M4 21h16"/></svg>
+        Get resume
+      </a>
+    </div>
+  </header>
+
+  <section class="board" id="departures" aria-labelledby="dep-h">
+    <header>
+      <h2 id="dep-h">Departures <small lang="hi">प्रस्थान</small></h2>
+      <span class="clock" id="clock" aria-hidden="true">--:--</span>
+    </header>
+    <div class="cols" aria-hidden="true"><span>Since</span><span>Project</span><span>Via</span><span>Status</span></div>
+
+    <details class="row" open>
+      <summary><span class="flaps dep" data-flap="2025"></span><span class="flaps" data-flap="Partner Portal"></span><span class="via">Next.js · TypeScript · Frappe · ERPNext</span><span class="status amber">Private</span></summary>
+      <div class="detail">
+        <p>Supplier analytics in one secure portal: sales, inventory and purchasing dashboards, passwordless sign-in, inventory alerts, CSV/Excel exports, scheduled email reports, and supplier-scoped data with rate limiting.</p>
+      </div>
+    </details>
+    <details class="row">
+      <summary><span class="flaps dep" data-flap="2024"></span><span class="flaps" data-flap="SymptoCure"></span><span class="via">React · Node · FastAPI · scikit-learn</span><span class="status">Live</span></summary>
+      <div class="detail">
+        <img src="https://res.cloudinary.com/dlh2n274r/image/upload/symptocure_bao74h.png" alt="SymptoCure dashboard" loading="lazy">
+        <p>Detect diseases, consult doctors and manage health in one place. An ML model predicts likely conditions from symptoms; Socket.IO connects patients to doctors in real time.</p>
+        <div class="links"><a href="https://symptocure.netlify.app/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/harshp4114/SymptoCure" target="_blank" rel="noopener">Source</a></div>
+      </div>
+    </details>
+    <details class="row">
+      <summary><span class="flaps dep" data-flap="2025"></span><span class="flaps" data-flap="RuralFin"></span><span class="via">React · Express · MongoDB · Socket.IO</span><span class="status">Top 75</span></summary>
+      <div class="detail">
+        <img src="https://res.cloudinary.com/dlh2n274r/image/upload/rural_fin_chat_dvvhuo.png" alt="RuralFin chat screen" loading="lazy">
+        <p>A hybrid cash-digital wallet with agent-assisted services and budgeting for rural and underbanked communities. Top 75 finalist at the Odoo x Charusat Hackathon 2025.</p>
+        <div class="links"><a href="https://ruralfin.netlify.app/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/Jhil20/Exception-RuralFin" target="_blank" rel="noopener">Source</a></div>
+      </div>
+    </details>
+    <details class="row">
+      <summary><span class="flaps dep" data-flap="2025"></span><span class="flaps" data-flap="Bank Integration"></span><span class="via">Python · Frappe · ERPNext · Selenium</span><span class="status">6 PRs</span></summary>
+      <div class="detail">
+        <p>HDFC portal changes broke ERPNext’s online payment automation. I rebuilt the workflow at Resilient Tech, adding bulk payments, IMPS/RTGS configuration and automated receipt management.</p>
+        <div class="links"><a href="https://github.com/resilient-tech/bank_integration/pulls?q=is%3Apr+is%3Amerged+author%3Aharshp4114" target="_blank" rel="noopener">Merged PRs</a><a href="https://github.com/resilient-tech/bank_integration" target="_blank" rel="noopener">Repository</a></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="board arrivals" aria-labelledby="arr-h">
+    <header><h2 id="arr-h">Merged upstream <small lang="hi">आगमन</small></h2></header>
+    <div class="row"><a class="arr" href="https://github.com/frappe/frappe/pulls?q=is%3Apr+state%3Amerged+involves%3Aharshp4114" target="_blank" rel="noopener"><span class="flaps dep" data-flap="18"></span><span class="flaps" data-flap="frappe/frappe"></span><span class="via">Features, fixes, refactors</span><span class="status">18 merged</span></a></div>
+    <div class="row"><a class="arr" href="https://github.com/frappe/erpnext/pulls?q=is%3Apr+state%3Amerged+involves%3Aharshp4114" target="_blank" rel="noopener"><span class="flaps dep" data-flap="4"></span><span class="flaps" data-flap="frappe/erpnext"></span><span class="via">Fixes and refactors</span><span class="status">4 merged</span></a></div>
+  </section>
+
+  <section class="route" id="route" aria-labelledby="route-h">
+    <h2 id="route-h">Route of the line</h2>
+    <ol class="line">
+      <li>Python<small>Frappe, FastAPI</small></li>
+      <li>JavaScript<small>TypeScript</small></li>
+      <li>React<small>Next.js</small></li>
+      <li>Node<small>Express, Socket.IO</small></li>
+      <li>ERPNext<small>Frappe Framework</small></li>
+      <li>MongoDB<small>MySQL</small></li>
+      <li>C++ · C# · Java<small>ASP.NET MVC</small></li>
+    </ol>
+  </section>
+
+  <section class="enquiry" id="enquiry" aria-labelledby="enq-h">
+    <div>
+      <h2 id="enq-h">Enquiry</h2>
+      <p>B.Tech Computer Engineering, Dharmsinh Desai University (2022–2026). Working at Resilient Tech on Frappe and ERPNext.</p>
+    </div>
+    <div class="counter">
+      <a href="https://github.com/harshp4114" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <a href="https://www.linkedin.com/in/harsh-patadia-a677a4289/" target="_blank" rel="noopener">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <a href="mailto:harshpatadia4114@gmail.com">Email <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <a href="https://leetcode.com/u/harsh4114/" target="_blank" rel="noopener">LeetCode <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+  </section>
+  <footer>Harsh Patadia · Vadodara, Gujarat</footer>
+</div>
+
+<script>
+  // split-flap: render each label as flap cells, then settle from random glyphs
+  const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/";
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-flap]").forEach((el, row) => {
+    const text = el.dataset.flap.toUpperCase();
+    el.setAttribute("aria-label", el.dataset.flap);
+    el.innerHTML = [...text].map(c => `<span class="${c === " " ? "sp" : ""}" aria-hidden="true">${c === " " ? "&nbsp;" : c}</span>`).join("");
+    if (still) return;
+    [...el.children].forEach((cell, i) => {
+      const final = text[i];
+      if (final === " ") return;
+      let n = 6 + i + row * 2;
+      const t = setInterval(() => {
+        cell.textContent = --n > 0 ? glyphs[Math.random() * glyphs.length | 0] : final;
+        if (n <= 0) clearInterval(t);
+      }, 45);
+    });
+  });
+  const clock = document.getElementById("clock");
+  const tick = () => clock.textContent = new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "Asia/Kolkata" }) + " IST";
+  tick(); setInterval(tick, 30000);
+</script>
+</body>
+</html>

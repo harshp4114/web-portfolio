@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harsh Patadia — Drawing Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;700&family=B612+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --film: #f6f8f7;
+    --grid: rgba(20, 70, 110, .07);
+    --ink: #121417;
+    --soft: #4a5058;
+    --red: #d2291f;
+    --cyan: #0f6fa8;
+    --w: 1.5px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; color: var(--ink); font: 400 1.05rem/1.6 "Archivo Narrow", sans-serif;
+    background:
+      linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 20px 20px,
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 20px 20px,
+      var(--film);
+  }
+  ::selection { background: var(--cyan); color: #fff; }
+  a { color: var(--ink); text-underline-offset: .2em; }
+  a:hover { color: var(--red); }
+  :focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+  .mono { font-family: "B612 Mono", monospace; }
+  .up { text-transform: uppercase; letter-spacing: .06em; }
+
+  /* the sheet frame with zone markers */
+  .sheet { margin: clamp(10px, 2vw, 24px); border: 3px solid var(--ink); position: relative; padding: clamp(14px, 2.4vw, 28px); }
+  .sheet::before { content: ""; position: absolute; inset: 8px; border: var(--w) solid var(--ink); pointer-events: none; }
+  .zones { position: absolute; left: 0; right: 0; top: -1.5rem; display: flex; justify-content: space-around; font: 700 .8rem "B612 Mono"; color: var(--soft); }
+  .zones.side { inset: 0 auto 0 -1.4rem; flex-direction: column; top: 0; width: 1rem; }
+  body > .sheet { margin-top: 2.2rem; margin-left: 2.2rem; }
+
+  .top { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: flex-start; position: relative; }
+  nav { display: flex; gap: 22px; font: 700 .95rem "Archivo Narrow"; text-transform: uppercase; letter-spacing: .08em; }
+  nav a { text-decoration: none; border-bottom: var(--w) solid transparent; }
+  nav a:hover { border-color: var(--red); }
+
+  table { border-collapse: collapse; font: 400 .85rem/1.35 "B612 Mono"; }
+  th, td { border: var(--w) solid var(--ink); padding: 5px 9px; text-align: left; vertical-align: top; }
+  th { font: 700 .78rem "Archivo Narrow"; text-transform: uppercase; letter-spacing: .08em; background: rgba(18,20,23,.04); }
+  caption { caption-side: top; text-align: left; font: 700 .8rem "Archivo Narrow"; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 4px; }
+  .rev { background: var(--film); }
+  .rev td:first-child { text-align: center; }
+  .tri { display: inline-grid; place-items: center; width: 22px; height: 20px; color: var(--red); font: 700 .7rem "B612 Mono"; background: none; position: relative; }
+  .tri svg { position: absolute; inset: 0; }
+
+  /* main view: the lettering with dimension lines */
+  .hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: end; padding: clamp(40px, 7vw, 96px) 0 clamp(36px, 5vw, 64px); }
+  .lettering { position: relative; padding: 46px 0 64px 0; }
+  .lettering h1 { margin: 0; font: 700 clamp(3.6rem, 10.5vw, 8.4rem)/.9 "Archivo Narrow"; letter-spacing: -.02em; text-transform: uppercase; display: inline-block; position: relative; }
+  .dim { position: absolute; left: 0; right: 0; height: 30px; color: var(--cyan); }
+  .dim svg { width: 100%; height: 100%; overflow: visible; }
+  .dim span { position: absolute; left: 50%; transform: translateX(-50%); background: var(--film); padding: 0 8px; font: 700 .85rem "B612 Mono"; white-space: nowrap; }
+  .dim.over { top: 0; } .dim.over span { top: -2px; }
+  .dim.under { bottom: 8px; } .dim.under span { bottom: -4px; }
+  .draw path { stroke-dasharray: 1200; stroke-dashoffset: 0; }
+  .js .draw path { animation: draw 1.6s cubic-bezier(.16,1,.3,1) .2s both; }
+  @keyframes draw { from { stroke-dashoffset: 1200; } }
+
+  .note { border-left: var(--w) solid var(--ink); padding-left: 18px; }
+  .note h2 { font: 700 .85rem "Archivo Narrow"; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 6px; }
+  .note p { margin: 0 0 16px; max-width: 52ch; font-size: 1.1rem; }
+  .note img { width: 96px; height: 96px; object-fit: cover; filter: grayscale(1) contrast(1.1); border: var(--w) solid var(--ink); }
+  .note .who { display: flex; gap: 14px; align-items: center; margin-bottom: 14px; font: 700 1.2rem "Archivo Narrow"; text-transform: uppercase; }
+
+  /* views = projects */
+  .views { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 4vw, 56px); border-top: var(--w) solid var(--ink); padding-top: clamp(28px, 4vw, 48px); }
+  .view { position: relative; }
+  .frame { border: var(--w) solid var(--ink); aspect-ratio: 16 / 9; background: #fff; position: relative; overflow: hidden; }
+  .frame img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(.35); }
+  .frame.blank { display: grid; place-items: center; background: repeating-linear-gradient(45deg, transparent 0 9px, rgba(18,20,23,.1) 9px 10px), #fff; }
+  .frame.blank span { background: var(--film); border: var(--w) solid var(--ink); padding: 6px 12px; font: 700 .85rem "B612 Mono"; text-transform: uppercase; }
+  .balloon { position: absolute; top: -18px; right: 18px; width: 40px; height: 40px; border: 2px solid var(--ink); border-radius: 50%; background: var(--film); display: grid; place-items: center; font: 700 1rem "B612 Mono"; }
+  .view h3 { margin: 14px 0 2px; font: 700 clamp(1.4rem, 2.4vw, 1.9rem)/1.1 "Archivo Narrow"; text-transform: uppercase; letter-spacing: .02em; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+  .view .scale { font: 400 .8rem "B612 Mono"; color: var(--soft); text-transform: uppercase; }
+  .view p { margin: 8px 0 10px; max-width: 60ch; }
+  .view .links { display: flex; gap: 18px; font: 700 .9rem "Archivo Narrow"; text-transform: uppercase; letter-spacing: .08em; }
+  .cloud { position: absolute; left: -10px; top: -12px; color: var(--red); font: 700 .8rem "B612 Mono"; display: flex; align-items: center; gap: 6px; background: var(--film); padding: 2px 8px; border: 2px solid var(--red); border-radius: 14px; }
+
+  /* bottom: parts list + title block */
+  .bottom { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px; margin-top: clamp(40px, 6vw, 72px); align-items: end; }
+  .parts, .tb { width: 100%; background: var(--film); }
+  .tb td { height: 2.6rem; }
+  .tb .big { font: 700 1.5rem/1.1 "Archivo Narrow"; text-transform: uppercase; }
+  .tb small { display: block; font: 700 .68rem "Archivo Narrow"; letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
+  .tb a { font-weight: 700; }
+
+  @media (max-width: 820px) {
+    body > .sheet { margin: 10px; }
+    .zones { display: none; }
+    .hero, .views, .bottom { grid-template-columns: 1fr; }
+    .rev { width: 100%; }
+    .lettering { padding-bottom: 56px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .js .draw path { animation: none; } }
+</style>
+</head>
+<body>
+<div class="sheet" id="top">
+  <div class="zones" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
+  <div class="zones side" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span></div>
+
+  <div class="top">
+    <nav aria-label="Primary"><a href="#views">Projects</a><a href="#parts">Stack</a><a href="#title">Contact</a></nav>
+    <table class="rev">
+      <caption>Revisions · merged upstream</caption>
+      <thead><tr><th>Rev</th><th>Repository</th><th>Merged</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tri"><svg viewBox="0 0 22 20" aria-hidden="true"><path d="M11 1 21 19H1Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>A</span></td><td><a href="https://github.com/frappe/frappe/pulls?q=is%3Apr+state%3Amerged+involves%3Aharshp4114" target="_blank" rel="noopener">frappe/frappe</a></td><td>18 PRs</td></tr>
+        <tr><td><span class="tri"><svg viewBox="0 0 22 20" aria-hidden="true"><path d="M11 1 21 19H1Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>B</span></td><td><a href="https://github.com/frappe/erpnext/pulls?q=is%3Apr+state%3Amerged+involves%3Aharshp4114" target="_blank" rel="noopener">frappe/erpnext</a></td><td>4 PRs</td></tr>
+        <tr><td><span class="tri"><svg viewBox="0 0 22 20" aria-hidden="true"><path d="M11 1 21 19H1Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>C</span></td><td><a href="https://github.com/resilient-tech/bank_integration/pulls?q=is%3Apr+is%3Amerged+author%3Aharshp4114" target="_blank" rel="noopener">bank_integration</a></td><td>6 PRs</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <header class="hero">
+    <div class="lettering">
+      <div class="dim over draw" aria-hidden="true">
+        <svg viewBox="0 0 600 30" preserveAspectRatio="none"><path d="M2 4v26M598 4v26M2 16H598" fill="none" stroke="currentColor" stroke-width="1.4" vector-effect="non-scaling-stroke"/><path d="M2 16l14-5v10ZM598 16l-14-5v10Z" fill="currentColor"/></svg>
+        <span>22 merged PRs · Frappe + ERPNext</span>
+      </div>
+      <h1>Hello<br>World.</h1>
+      <div class="dim under draw" aria-hidden="true">
+        <svg viewBox="0 0 600 30" preserveAspectRatio="none"><path d="M2 0v26M380 0v26M2 14H380" fill="none" stroke="currentColor" stroke-width="1.4" vector-effect="non-scaling-stroke"/></svg>
+        <span style="left:32%">Full-stack · 1:1</span>
+      </div>
+    </div>
+    <div class="note">
+      <div class="who"><img src="https://avatars.githubusercontent.com/u/142822496?v=4" alt="Harsh Patadia">Harsh K. Patadia</div>
+      <h2>General notes</h2>
+      <p>I’m Harsh Patadia, a Full-Stack Developer at Resilient Tech with a passion for coding and web development. I’ve contributed 22 merged pull requests to Frappe and ERPNext, and I enjoy transforming ideas into impactful, real-world solutions.</p>
+      <a href="../src/assets/resume.pdf" download="HarshKPatadia_resume.pdf" class="up"><b>Download resume (PDF)</b></a>
+    </div>
+  </header>
+
+  <section class="views" id="views" aria-label="Projects">
+    <article class="view">
+      <div class="frame blank"><span>Private · client work</span></div>
+      <span class="balloon" aria-hidden="true">1</span>
+      <h3>Partner Portal</h3>
+      <div class="scale">Detail 1 · Next.js / TypeScript / Frappe / ERPNext</div>
+      <p>Supplier analytics in one secure portal: sales, inventory and purchasing dashboards, passwordless sign-in, inventory alerts, CSV/Excel exports, scheduled email reports, supplier-scoped data with rate limiting.</p>
+    </article>
+    <article class="view">
+      <div class="frame"><img src="https://res.cloudinary.com/dlh2n274r/image/upload/symptocure_bao74h.png" alt="SymptoCure interface" loading="lazy"></div>
+      <span class="balloon" aria-hidden="true">2</span>
+      <h3>SymptoCure</h3>
+      <div class="scale">Detail 2 · React / Node / FastAPI / scikit-learn</div>
+      <p>Detect diseases, consult doctors and manage health in one place. ML symptom prediction with real-time doctor consultations over Socket.IO.</p>
+      <div class="links"><a href="https://symptocure.netlify.app/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/harshp4114/SymptoCure" target="_blank" rel="noopener">Source</a></div>
+    </article>
+    <article class="view">
+      <div class="frame"><img src="https://res.cloudinary.com/dlh2n274r/image/upload/rural_fin_chat_dvvhuo.png" alt="RuralFin chat interface" loading="lazy"></div>
+      <span class="cloud">Top 75 · Odoo x Charusat 2025</span>
+      <span class="balloon" aria-hidden="true">3</span>
+      <h3>RuralFin</h3>
+      <div class="scale">Detail 3 · React / Express / MongoDB / Socket.IO</div>
+      <p>A hybrid cash-digital wallet with agent-assisted services and budgeting for rural and underbanked communities.</p>
+      <div class="links"><a href="https://ruralfin.netlify.app/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/Jhil20/Exception-RuralFin" target="_blank" rel="noopener">Source</a></div>
+    </article>
+    <article class="view">
+      <div class="frame blank"><span>See revision C</span></div>
+      <span class="balloon" aria-hidden="true">4</span>
+      <h3>Bank Integration</h3>
+      <div class="scale">Detail 4 · Python / Frappe / ERPNext / Selenium</div>
+      <p>HDFC portal changes broke ERPNext’s payment automation. Rebuilt it at Resilient Tech with bulk payments, IMPS/RTGS configuration and automated receipts.</p>
+      <div class="links"><a href="https://github.com/resilient-tech/bank_integration" target="_blank" rel="noopener">Repository</a><a href="https://github.com/resilient-tech/bank_integration/pulls?q=is%3Apr+is%3Amerged+author%3Aharshp4114" target="_blank" rel="noopener">6 merged PRs</a></div>
+    </article>
+  </section>
+
+  <div class="bottom">
+    <table class="parts" id="parts">
+      <caption>Parts list</caption>
+      <thead><tr><th>Item</th><th>Part</th><th>Material</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Languages</td><td>Python, JavaScript, TypeScript, C++, C#, Java, SQL</td></tr>
+        <tr><td>2</td><td>Frontend</td><td>React, Next.js, Tailwind CSS</td></tr>
+        <tr><td>3</td><td>Backend</td><td>Node, Express, FastAPI, ASP.NET MVC, Socket.IO, JWT</td></tr>
+        <tr><td>4</td><td>ERP</td><td>Frappe Framework, ERPNext</td></tr>
+        <tr><td>5</td><td>Data &amp; tools</td><td>MongoDB, MySQL, Entity Framework, Git, Postman</td></tr>
+      </tbody>
+    </table>
+    <table class="tb" id="title">
+      <tbody>
+        <tr><td colspan="2"><small>Title</small><span class="big">Harsh Patadia · Portfolio</span></td></tr>
+        <tr><td><small>Drawn by</small>H. K. Patadia</td><td><small>Organisation</small>Resilient Tech</td></tr>
+        <tr><td><small>Email</small><a href="mailto:harshpatadia4114@gmail.com">harshpatadia4114@gmail.com</a></td><td><small>GitHub</small><a href="https://github.com/harshp4114" target="_blank" rel="noopener">harshp4114</a></td></tr>
+        <tr><td><small>LinkedIn</small><a href="https://www.linkedin.com/in/harsh-patadia-a677a4289/" target="_blank" rel="noopener">Harsh Patadia</a></td><td><small>LeetCode</small><a href="https://leetcode.com/u/harsh4114/" target="_blank" rel="noopener">harsh4114</a></td></tr>
+        <tr><td><small>Education</small>B.Tech CE, DDU · 2026</td><td><small>Sheet</small>1 of 1</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>document.documentElement.classList.add("js");</script>
+</body>
+</html>
